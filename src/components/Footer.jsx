@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       {/* Outer container */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-8">
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* Main layout: logo (left) + links (right) */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8">
@@ -30,10 +30,13 @@ export default function Footer() {
           {/* ================= RIGHT SECTION ================= */}
           {/* Links: stacked on mobile, two columns from sm+ */}
           <div className="mt-4 lg:mt-0 lg:ml-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8">
+
+
+
 
               {/* Company links */}
-              <div className="space-y-2">
+              <div className="space-y-2 mt-4">
                 <p className="font-medium text-gray-500">Company</p>
                 <Link to="/blogs" className="block text-gray-700">Blogs</Link>
                 <Link to="/media" className="block text-gray-700">Media</Link>
@@ -42,7 +45,7 @@ export default function Footer() {
               </div>
 
               {/* Research links */}
-              <div className="space-y-2">
+              <div className="space-y-2 mt-4">
                 <p className="font-medium text-gray-500">Research ↗</p>
                 <Link to="/research/on-road" className="block text-gray-700">
                   On Road
@@ -67,8 +70,8 @@ export default function Footer() {
         </div>
 
         {/* ================= COPYRIGHT ================= */}
-        <div className="mt-6">
-          <p className="text-[11px] text-center text-gray-500">
+        <div className="mt-6 ">
+          <p className="text-[11px] text-center text-gray-500 ">
             © Swaayatt Robots Private Limited. All rights reserved.
           </p>
         </div>
