@@ -16,7 +16,7 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="Swaayatt Robots"
-                className="w-14 h-14 object-contain"
+                className="w-14 h-14 object-contain transition-transform duration-200 ease-out hover:-translate-y-[2px]"
               />
               <div>
                 <p className="text-[22px] font-semibold tracking-wide text-[#111]">
@@ -33,15 +33,25 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center gap-5 text-[#111]">
-              <a href="tel:+917554947025">
+              <a
+                href="tel:+917554947025"
+                className="transition-transform duration-200 ease-out hover:-translate-y-[2px]"
+              >
                 <Phone className="w-5 h-5" />
               </a>
-              <a href="mailto:contact@swaayatt.com">
+              <a
+                href="mailto:contact@swaayatt.com"
+                className="transition-transform duration-200 ease-out hover:-translate-y-[2px]"
+              >
                 <Mail className="w-5 h-5" />
               </a>
 
               {/* X */}
-              <a href="#" aria-label="X">
+              <a
+                href="#"
+                aria-label="X"
+                className="transition-transform duration-200 ease-out hover:-translate-y-[2px]"
+              >
                 <svg
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
@@ -55,6 +65,7 @@ export default function Footer() {
                 href="https://linkedin.com/company/swaayatt-robots"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="transition-transform duration-200 ease-out hover:-translate-y-[2px]"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -63,6 +74,7 @@ export default function Footer() {
                 href="https://facebook.com/swaayattrobots"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="transition-transform duration-200 ease-out hover:-translate-y-[2px]"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -88,22 +100,67 @@ export default function Footer() {
           </div>
 
           {/* ===== COMPANY LINKS ===== */}
-          <div className="space-y-3 lg:pl-8 ml-16">
+          <div className="space-y-3 lg:pl-8">
             <p className="font-medium text-[#9CA3AF]">Company</p>
-            <Link to="/blogs" className="block text-[14px] text-[#242424]">Blogs</Link>
-            <Link to="/media" className="block text-[14px] text-[#242424]">Media</Link>
-            <Link to="/career" className="block text-[14px] text-[#242424]">Career</Link>
-            <Link to="/contact" className="block text-[14px] text-[#242424]">Contact</Link>
+            <Link
+              to="/blogs"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/media"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Media
+            </Link>
+            <Link
+              to="/career"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Career
+            </Link>
+            <Link
+              to="/contact"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Contact
+            </Link>
           </div>
 
-          {/* ===== RESEARCH LINKS (LESS SPACE FROM COMPANY) ===== */}
-          <div className="space-y-3 ml-2">
+          {/* ===== RESEARCH LINKS ===== */}
+          <div className="space-y-3">
             <p className="font-medium text-[#9CA3AF]">Research ↗</p>
-            <Link to="/research/on-road" className="block text-[14px] text-[#242424]">On Road</Link>
-            <Link to="/research/off-road" className="block text-[14px] text-[#242424]">Off Road</Link>
-            <Link to="/research/mapping" className="block text-[14px] text-[#242424]">Mapping and Localization</Link>
-            <Link to="/research/motion-planning" className="block text-[14px] text-[#242424]">Motion Planning</Link>
-            <Link to="/research/perception" className="block text-[14px] text-[#242424]">Perception</Link>
+            <Link
+              to="/research/on-road"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              On Road
+            </Link>
+            <Link
+              to="/research/off-road"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Off Road
+            </Link>
+            <Link
+              to="/research/mapping"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Mapping and Localization
+            </Link>
+            <Link
+              to="/research/motion-planning"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Motion Planning
+            </Link>
+            <Link
+              to="/research/perception"
+              className="block text-[14px] text-[#242424] transition-all duration-200 hover:-translate-y-[1px] hover:text-[#000]"
+            >
+              Perception
+            </Link>
           </div>
         </div>
 
