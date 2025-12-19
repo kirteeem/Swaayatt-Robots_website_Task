@@ -55,7 +55,17 @@ export default function Contact() {
             </div>
 
             {/* ================= MAP ================= */}
-           <div className="w-[942px] h-[560px] rounded-[20px] overflow-hidden border border-gray-300">
+          <div className="
+  w-full
+  max-w-[942px]
+  h-[260px]
+  sm:h-[400px]
+  lg:h-[560px]
+  rounded-[20px]
+  overflow-hidden
+  border border-gray-300
+">
+
 
               <iframe
                 title="Swaayatt Robots Location"
@@ -77,13 +87,19 @@ function ContactRow({ icon, title, text, link, linkText }) {
   return (
     <div className="flex items-start gap-4">
       {/* ICON (64x64) */}
-      <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-        <img
-          src={icon}
-          alt={title}
-          className="w-8 h-8 object-contain"
-        />
-      </div>
+     {/* ICON */}
+{/* ICON (slightly smaller, text unchanged) */}
+{/* ICON (more smaller, text unchanged) */}
+<div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+  <img
+    src={icon}
+    alt={title}
+    className="w-4 h-4 object-contain"
+  />
+</div>
+
+
+
 
       {/* TEXT CONTENT */}
       <div>
