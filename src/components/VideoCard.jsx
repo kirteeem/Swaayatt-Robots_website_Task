@@ -7,11 +7,12 @@ export default function VideoCard({ video }) {
       {/* Thumbnail */}
       <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200">
         <img
-          src="../../public/images/Blogs/Blog-1.webp"
-          alt={video.title}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+  src={video.thumbnail}
+  alt={video.title}
+  className="w-full h-full object-cover"
+  loading="lazy"
+/>
+
 
         {/* Play Button */}
         <div className="absolute inset-0 flex items-center justify-center">
