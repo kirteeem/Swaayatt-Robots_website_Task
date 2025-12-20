@@ -1,8 +1,4 @@
-// ICON IMAGES
-import locationIcon from "../assets/images/location.png";
-import mailIcon from "../assets/images/email.png";
-import mailInvestIcon from "../assets/images/investmentlogo.png";
-import phoneIcon from "../assets/images/phone.png";
+import { MapPin, Mail, Briefcase, Phone } from "lucide-react";
 
 /* ================= CONTACT PAGE ================= */
 export default function Contact() {
@@ -26,27 +22,27 @@ export default function Contact() {
 
               <div className="space-y-4">
                 <ContactRow
-                  icon={locationIcon}
+                  icon={MapPin}
                   title="Location"
                   text="No. 42, Abhinav Regal Homes, Awadhpuri, Pipilani, Bhopal, Madhya Pradesh - 462022"
                 />
 
                 <ContactRow
-                  icon={mailIcon}
+                  icon={Mail}
                   title="For General Queries"
                   link="mailto:contact@swaayatt.com"
                   linkText="contact@swaayatt.com"
                 />
 
                 <ContactRow
-                  icon={mailInvestIcon}
+                  icon={Briefcase}
                   title="For Potential Investment"
                   link="mailto:investment@swaayatt.com"
                   linkText="investment@swaayatt.com"
                 />
 
                 <ContactRow
-                  icon={phoneIcon}
+                  icon={Phone}
                   title="Call"
                   link="tel:+917554947025"
                   linkText="+91-755-4947025"
@@ -55,18 +51,18 @@ export default function Contact() {
             </div>
 
             {/* ================= MAP ================= */}
-          <div className="
-  w-full
-  max-w-[942px]
-  h-[260px]
-  sm:h-[400px]
-  lg:h-[560px]
-  rounded-[20px]
-  overflow-hidden
-  border border-gray-300
-">
-
-
+            <div
+              className="
+                w-full
+                max-w-[942px]
+                h-[260px]
+                sm:h-[400px]
+                lg:h-[560px]
+                rounded-[20px]
+                overflow-hidden
+                border border-gray-300
+              "
+            >
               <iframe
                 title="Swaayatt Robots Location"
                 src="https://www.google.com/maps?q=Swaayatt%20Robots%20Bhopal&output=embed"
@@ -83,23 +79,14 @@ export default function Contact() {
 }
 
 /* ================= CONTACT ROW ================= */
-function ContactRow({ icon, title, text, link, linkText }) {
+function ContactRow({ icon: Icon, title, text, link, linkText }) {
   return (
     <div className="flex items-start gap-4">
-      {/* ICON (64x64) */}
-     {/* ICON */}
-{/* ICON (slightly smaller, text unchanged) */}
-{/* ICON (more smaller, text unchanged) */}
-<div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-  <img
-    src={icon}
-    alt={title}
-    className="w-4 h-4 object-contain"
-  />
-</div>
-
-
-
+      
+      {/* ICON — SAME SIZE AS BEFORE */}
+      <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+        <Icon className="w-4 h-4 text-blue-600" />
+      </div>
 
       {/* TEXT CONTENT */}
       <div>

@@ -1,5 +1,4 @@
 // Import ONE thumbnail (used for all videos)
-import videoThumb from "../assets/images/research/offroad/Video1.png";
 
 export default function VideoCard({ video }) {
   return (
@@ -8,7 +7,7 @@ export default function VideoCard({ video }) {
       {/* Thumbnail */}
       <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200">
         <img
-          src={videoThumb}
+          src="../../public/images/Blogs/Blog-1.webp"
           alt={video.title}
           className="w-full h-full object-cover"
           loading="lazy"

@@ -1,4 +1,4 @@
-import logo from "../assets/images/Swaayatt.png";
+
 import { Link } from "react-router-dom";
 import { Phone, Mail, Linkedin, Facebook } from "lucide-react";
 
@@ -14,10 +14,11 @@ export default function Footer() {
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-4">
               <img
-                src={logo}
-                alt="Swaayatt Robots"
-                className="w-14 h-14 object-contain transition-transform duration-200 ease-out hover:-translate-y-[2px]"
-              />
+  src="/images/Swaayatt/Swaayatt.png"
+  alt="Swaayatt Robots"
+  className="w-14 h-14 min-w-[56px] min-h-[56px] object-contain block"
+/>
+
               <div>
                 <p className="text-[22px] font-semibold tracking-wide text-[#111]">
                   SWAAYATT

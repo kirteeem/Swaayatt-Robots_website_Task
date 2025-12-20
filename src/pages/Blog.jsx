@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
-
-// Images
-import image1 from "../assets/images/blogs/image1.png";
-import image2 from "../assets/images/blogs/image2.png";
-import image3 from "../assets/images/blogs/image3.png";
-import image4 from "../assets/images/blogs/image4.png";
-
 const blogs = [
   {
     id: 1,
-    image: image1,
+    image: "/images/Blogs/Blog-1.webp",
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
@@ -19,7 +12,7 @@ const blogs = [
   },
   {
     id: 2,
-    image: image2,
+    image: "/images/Blogs/Blogs.webp",
     title: "Autonomous Driving: Ellipsoidal Constrained Agent Navigation",
     description:
       "Motion and path planning in completely unknown environments is an extremely challenging problem.",
@@ -28,7 +21,7 @@ const blogs = [
   },
   {
     id: 3,
-    image: image3,
+    image: "/images/Blogs/Blog-3.webp",
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
@@ -38,7 +31,7 @@ const blogs = [
   },
   {
     id: 4,
-    image: image4,
+    image: "/images/Blogs/Blog-1.webp",
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
@@ -47,7 +40,6 @@ const blogs = [
     videoUrl: "",
   },
 ];
-
 export default function Blogs() {
   return (
     <main className="bg-white">

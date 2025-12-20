@@ -1,6 +1,6 @@
 import React from "react";
 import VideoGrid from "../components/VideoGrid";
-import Hero from "../assets/images/research/offroad/Hero.png";
+
 
 const Offroad = () => {
   return (
@@ -12,7 +12,7 @@ const Offroad = () => {
 
           {/* Image */}
           <img
-            src={Hero}
+            src="../../public/images/research/offroad/Offroad.webp"
             alt="Off Road Banner"
             className="w-full h-full object-cover"
           />

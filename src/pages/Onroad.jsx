@@ -1,7 +1,6 @@
 import React from "react";
 import VideoGrid from "../components/VideoGrid";
-import Hero from "../assets/images/research/onroad/onroad.png";
-import { onroadVideos } from "../data/onroadVideo"; // ✅ FIXED
+import { onroadVideos } from "../data/onroadVideo";
 
 const Onroad = () => {
   return (
@@ -12,7 +11,7 @@ const Onroad = () => {
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
 
           <img
-            src={Hero}
+            src="../../public/images/research/onroad/Onroad.webp"
             alt="On Road Banner"
             className="w-full h-full object-cover"
           />

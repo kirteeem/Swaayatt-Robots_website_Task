@@ -13,19 +13,17 @@ import MappingLocalization from "./pages/MappingLocalization";
 import MotionPlanning from "./pages/MotionPlanning";
 import Perception from "./pages/Perception";
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
-
-      <ScrollToTop /> {/* ✅ THIS WAS MISSING */}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
 
-        {/* Research Parent Route */}
         <Route path="/research" element={<Research />}>
           <Route path="off-road" element={<Offroad />} />
           <Route path="on-road" element={<Onroad />} />
@@ -39,5 +37,3 @@ function App() {
     </>
   );
 }
-
-export default App;

@@ -1,6 +1,5 @@
 import React from "react";
 import VideoGrid from "../components/VideoGrid";
-import Hero from "../assets/images/research/mapping-localization/mapping.png";
 import { mappingLocalizationVideos } from "../data/mappingLocalizationVideos";
 
 const MappingLocalization = () => {
@@ -12,7 +11,7 @@ const MappingLocalization = () => {
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
 
           <img
-            src={Hero}
+            src="/images/research/mapping/mapping.webp"
             alt="Mapping and Localization Banner"
             className="w-full h-full object-cover"
           />

@@ -1,7 +1,6 @@
 import React from "react";
 import VideoGrid from "../components/VideoGrid";
-import Hero from "../assets/images/research/ perception/Hero.png";
-import { perceptionVideos } from "../data/perceptionVideos";
+import {perceptionVideos} from "../data/perceptionVideos"
 
 const Perception = () => {
   return (
@@ -11,7 +10,7 @@ const Perception = () => {
       <section className="px-4 md:px-16 mt-8">
         <div className="relative w-full aspect-[1634/384] rounded-xl overflow-hidden">
           <img
-            src={Hero}
+            src="/images/research/precption/preception.webp"
             alt="Perception Banner"
             className="w-full h-full object-cover"
           />

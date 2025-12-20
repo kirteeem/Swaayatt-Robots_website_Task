@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import Swaayatt from "../assets/images/Swaayatt.png";
+
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,11 +36,11 @@ export default function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img
-              src={Swaayatt}
-              alt="Swaayatt Robots Logo"
-              className="h-10 w-auto object-contain"
-            />
+                          <img
+  src="/images/Swaayatt/Swaayatt.png"
+  alt="Swaayatt Robots"
+  className="w-14 h-14 min-w-[56px] min-h-[56px] object-contain block"
+/>
             <div className="leading-none">
               <div className="font-bold text-sm">SWAAYATT</div>
               <div className="font-bold text-sm">ROBOTS</div>
