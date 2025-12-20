@@ -43,9 +43,7 @@ const MotionPlanning = () => {
           font-medium
           text-[#686868]
         ">
-          These demonstrations showcase advanced motion planning and adaptive
-          decision-making in stochastic traffic environments using reinforcement
-          learning and robust control techniques.
+          These videos demonstrate advanced motion planning and adaptive decision-making in stochastic dynamic traffic, employing reinforcement learning and robust control strategies.
         </p>
       </section>
 
@@ -78,6 +76,27 @@ const MotionPlanning = () => {
           </div>
 
           {/* Card 3 */}
+          <div>
+            <img
+              src="/images/Blogs/Blog-1.webp"
+              alt="RL Control Demo"
+              className="w-full h-[220px] object-cover rounded-lg"
+            />
+            <h3 className="mt-3 font-semibold">
+              Reinforcement Learning Control
+            </h3>
+          </div>
+
+          <div>
+            <img
+              src="/images/Blogs/Blog-1.webp"
+              alt="RL Control Demo"
+              className="w-full h-[220px] object-cover rounded-lg"
+            />
+            <h3 className="mt-3 font-semibold">
+              Reinforcement Learning Control
+            </h3>
+          </div>
           <div>
             <img
               src="/images/Blogs/Blog-1.webp"
