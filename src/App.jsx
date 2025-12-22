@@ -12,6 +12,7 @@ import Onroad from "./pages/Onroad";
 import MappingLocalization from "./pages/MappingLocalization";
 import MotionPlanning from "./pages/MotionPlanning";
 import Perception from "./pages/Perception";
+import Career from "./pages/Career"; // ✅ ADD THIS
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/career" element={<Career />} /> {/* ✅ CAREER PAGE */}
 
         <Route path="/research" element={<Research />}>
           <Route path="off-road" element={<Offroad />} />
