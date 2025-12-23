@@ -1,4 +1,5 @@
 import React from "react";
+import head from "/images/media/featured/f1.webp"
 
 export default function FeaturedStories() {
   return (
@@ -26,7 +27,7 @@ export default function FeaturedStories() {
         {/* LEFT IMAGE */}
         <div className="w-full h-full">
           <img
-            src="/images/media/featured/f1.png"
+            src={head}
             alt="Featured Story"
             className="w-full h-full object-cover rounded-[16px]"
           />
