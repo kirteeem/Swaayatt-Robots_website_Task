@@ -23,17 +23,13 @@ export default function App() {
       <ScrollToTop />
 
       <Routes>
-        {/* MAIN */}
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/career" element={<Career />} />
         <Route path="/media" element={<Media />} />
 
-        {/* RESEARCH OVERVIEW */}
         <Route path="/research" element={<Research />} />
-
-        {/* RESEARCH PAGES */}
         <Route path="/research/on-road" element={<Onroad />} />
         <Route path="/research/off-road" element={<OffRoad />} />
         <Route path="/research/perception" element={<Perception />} />

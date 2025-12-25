@@ -1,60 +1,81 @@
 import React from "react";
-import offroadVideos from "../data/mappingLocalizationVideos";
+import mappingLocalizationVideos from "../data/mappingLocalizationVideos";
 
-/* ================= HERO IMAGE (PUBLIC PATH) ================= */
-const heroImage = "../../public/images/research/mapping/mapping.webp";
+/* ================= HERO IMAGE ================= */
+/* 🔴 FIXED: Public assets must use /images/... (not ../../public/...) */
+const heroImage = "/images/research/mapping/mapping.webp";
 
 const MappingAndLocalization = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="px-4 md:px-16 mt-8">
+      {/* 🔴 CHANGED: max-w-screen-xl ➜ max-w-[1440px]
+          Reason: Too much left/right space on large screens & 80% zoom */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
         <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
-            alt="Off-road autonomous driving"
+            alt="Mapping and localization autonomous driving"
             className="w-full h-full object-cover opacity-80"
           />
 
-          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 text-white">
+          <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
             <h1
               className="
                 font-rethink
                 font-medium
                 tracking-[-0.02em]
-                leading-none
                 text-[40px]
                 sm:text-[48px]
-                md:text-[56px]
-                lg:text-[68px]
+                lg:text-[56px]
+                leading-[68px]
               "
             >
               Mapping and Localization
             </h1>
 
-            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2">
-              High-precision mapping and real-time localization built for dynamic, unpredictable environments.
+            <p
+              className="
+                max-w-xl
+                mt-3
+                text-[16px]
+                leading-[24px]
+                opacity-90
+              "
+            >
+              High-precision mapping and real-time localization built for dynamic,
+              unpredictable environments.
             </p>
           </div>
         </div>
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="px-6 md:px-16 py-12">
-        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-6xl">
-          These demonstrations highlight our autonomous driving technology (i) enabling navigation through unstructured environments, with complex road conditions, and (ii) effectively negotiating stochastic, complex, and adversarial traffic-dynamics.
+      {/* 🔴 CHANGED: unified container width + typography */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
+        <p
+          className="
+            max-w-4xl
+            text-[18px]
+            leading-[28px]
+            text-[#4B5563]
+          "
+        >
+          These demonstrations highlight our autonomous driving technology (i)
+          enabling navigation through unstructured environments, with complex
+          road conditions, and (ii) effectively negotiating stochastic, complex,
+          and adversarial traffic-dynamics.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="px-6 md:px-16 pb-20">
+      {/* 🔴 CHANGED: max-w-screen-xl ➜ max-w-[1440px] */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {offroadVideos.map((card) => (
-            <div
-              key={card.id}
-              className="group cursor-pointer transition duration-300 ease-out"
-            >
+          {mappingLocalizationVideos.map((card) => (
+            <div key={card.id} className="cursor-pointer">
+
               {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
                 <img
@@ -64,39 +85,53 @@ const MappingAndLocalization = () => {
                 />
               </div>
 
-              {/* Text */}
-              <div className="mt-4 max-w-[519px]">
+              {/* ================= TEXT ================= */}
+              <div className="mt-4 max-w-[520px]">
+
+                {/* Title */}
+                {/* 🔴 FIXED: removed bold + leading-none */}
                 <h3
                   className="
                     font-rethink
-                    font-bold
-                    text-[20px]
-                    leading-none
+                    font-medium
+                    text-[18px]
+                    leading-[22px]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
-                    line-clamp-2
                   "
                 >
                   {card.title}
                 </h3>
 
+                {/* Description (NO CLAMP) */}
+                {/* 🔴 FIXED: removed line-clamp & tight line-height */}
                 <p
                   className="
-                    mt-3
+                    mt-2
                     text-[14px]
-                    leading-[14px]
-                    tracking-[-0.02em]
-                    font-normal
-                    text-[#737373]
-                    line-clamp-3
+                    leading-[20px]
+                    tracking-[-0.01em]
+                    text-[#6B7280]
+                    overflow-visible
+                    max-h-none
                   "
                 >
                   {card.description}
                 </p>
 
-                <p className="text-xs text-gray-400 mt-4 font-mono">
+                {/* Date */}
+                <p
+                  className="
+                    mt-2
+                    text-[12px]
+                    leading-[16px]
+                    text-[#9CA3AF]
+                    font-mono
+                  "
+                >
                   {card.date}
                 </p>
+
               </div>
             </div>
           ))}

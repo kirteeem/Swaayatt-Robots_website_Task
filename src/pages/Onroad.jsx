@@ -1,7 +1,7 @@
 import React from "react";
-import offroadVideos from "../data/onroadVideo";
+import onroadVideos from "../data/onroadVideo";
 
-/* ================= HERO IMAGE (PUBLIC PATH) ================= */
+/* ================= HERO IMAGE ================= */
 const heroImage = "/images/research/onroad/Onroad.webp";
 
 const OnRoadPage = () => {
@@ -9,52 +9,68 @@ const OnRoadPage = () => {
     <div className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="px-4 md:px-16 mt-8">
-        <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 mt-8">
+        <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden">
           <img
             src={heroImage}
-            alt="Off-road autonomous driving"
-            className="w-full h-full object-cover opacity-80"
+            alt="On-road autonomous driving"
+            className="w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 text-white">
+          <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
             <h1
               className="
                 font-rethink
                 font-medium
                 tracking-[-0.02em]
-                leading-none
+                leading-[68px]
                 text-[40px]
                 sm:text-[48px]
-                md:text-[56px]
-                lg:text-[68px]
+                lg:text-[56px]
               "
             >
               On Road
             </h1>
 
-            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2">
-              Revolutionizing Autonomous Driving: Conquering Complex Traffic on India’s Unpredictable Roads
+            <p
+              className="
+                max-w-xl
+                mt-3
+                text-[16px]
+                leading-[24px]
+                opacity-90
+              "
+            >
+              Revolutionizing Autonomous Driving: Conquering Complex Traffic on
+              India’s Unpredictable Roads
             </p>
           </div>
         </div>
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="px-6 md:px-16 py-12">
-        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-6xl">
-          These demonstrations highlight our autonomous driving technology (i) enabling navigation through unstructured environments, with complex road conditions, and (ii) effectively negotiating stochastic, complex, and adversarial traffic-dynamics.
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 py-12">
+        <p
+          className="
+            max-w-4xl
+            text-[18px]
+            leading-[28px]
+            text-[#4B5563]
+          "
+        >
+          These demonstrations highlight our autonomous driving technology (i)
+          enabling navigation through unstructured environments, with complex
+          road conditions, and (ii) effectively negotiating stochastic, complex,
+          and adversarial traffic-dynamics.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="px-6 md:px-16 pb-20">
+      <section className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {offroadVideos.map((card) => (
-            <div
-              key={card.id}
-              className="group cursor-pointer transition duration-300 ease-out"
-            >
+          {onroadVideos.map((card) => (
+            <div key={card.id} className="cursor-pointer">
+
               {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
                 <img
@@ -64,39 +80,55 @@ const OnRoadPage = () => {
                 />
               </div>
 
-              {/* Text */}
-              <div className="mt-4 max-w-[519px]">
+              {/* ================= TEXT (NO CLAMP) ================= */}
+              <div className="mt-4 max-w-[520px]">
+
+                {/* Title */}
                 <h3
                   className="
                     font-rethink
-                    font-bold
-                    text-[20px]
-                    leading-none
+                    font-medium
+                    text-[18px]
+                    leading-[22px]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
-                    line-clamp-2
                   "
                 >
                   {card.title}
                 </h3>
 
+                {/* Description */}
+              <p
+  className="
+    mt-2
+    text-[14px]
+    leading-[20px]
+    tracking-[-0.01em]
+    text-[#6B7280]
+
+    overflow-visible
+    max-h-none
+    line-clamp-none
+    block
+  "
+>
+  {card.description}
+</p>
+
+
+                {/* Date */}
                 <p
                   className="
-                    mt-3
-                    text-[14px]
-                    leading-[14px]
-                    tracking-[-0.02em]
-                    font-normal
-                    text-[#737373]
-                    line-clamp-3
+                    mt-2
+                    text-[12px]
+                    leading-[16px]
+                    text-[#9CA3AF]
+                    font-mono
                   "
                 >
-                  {card.description}
-                </p>
-
-                <p className="text-xs text-gray-400 mt-4 font-mono">
                   {card.date}
                 </p>
+
               </div>
             </div>
           ))}

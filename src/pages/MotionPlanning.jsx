@@ -1,60 +1,79 @@
 import React from "react";
-import offroadVideos from "../data/motionPlanningVideos";
+import motionPlanningVideos from "../data/motionPlanningVideos";
 
-/* ================= HERO IMAGE (PUBLIC PATH) ================= */
-const heroImage = "../../public/images/research/motion-planning/motion.webp";
+/* ================= HERO IMAGE ================= */
+const heroImage = "/images/research/motion-planning/motion.webp";
 
-const OnRoadPage = () => {
+const MotionPlanningPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="px-4 md:px-16 mt-8">
+      {/* 🔴 CHANGED: max-w-screen-xl ➜ max-w-[1440px] 
+          Reason: Reduce extra left/right space on large screens & 80% zoom */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
         <div className="relative h-64 md:h-[400px] rounded-xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
-            alt="Off-road autonomous driving"
+            alt="Motion planning and decision making"
             className="w-full h-full object-cover opacity-80"
           />
 
-          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 text-white">
+          <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
             <h1
               className="
                 font-rethink
                 font-medium
                 tracking-[-0.02em]
-                leading-none
                 text-[40px]
                 sm:text-[48px]
-                md:text-[56px]
-                lg:text-[68px]
+                lg:text-[56px]
+                leading-[68px]
               "
             >
               Motion Planning and Decision Making
             </h1>
 
-            <p className="max-w-lg text-sm sm:text-base md:text-lg opacity-90 mt-2">
-              Reinforcement-driven motion planning and robust decision strategies for real-world autonomous mobility.
+            <p
+              className="
+                max-w-xl
+                mt-3
+                text-[16px]
+                leading-[24px]
+                opacity-90
+              "
+            >
+              Reinforcement-driven motion planning and robust decision strategies
+              for real-world autonomous mobility.
             </p>
           </div>
         </div>
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="px-6 md:px-16 py-12">
-        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-6xl">
-         These videos demonstrate advanced motion planning and adaptive decision-making in stochastic dynamic traffic, employing reinforcement learning and robust control strategies.
+      {/* 🔴 CHANGED: max-w-screen-xl ➜ max-w-[1440px] */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
+        <p
+          className="
+            max-w-4xl
+            text-[18px]
+            leading-[28px]
+            text-[#4B5563]
+          "
+        >
+          These videos demonstrate advanced motion planning and adaptive
+          decision-making in stochastic dynamic traffic, employing reinforcement
+          learning and robust control strategies.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="px-6 md:px-16 pb-20">
+      {/* 🔴 CHANGED: max-w-screen-xl ➜ max-w-[1440px] */}
+      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {offroadVideos.map((card) => (
-            <div
-              key={card.id}
-              className="group cursor-pointer transition duration-300 ease-out"
-            >
+          {motionPlanningVideos.map((card) => (
+            <div key={card.id} className="cursor-pointer">
+
               {/* Thumbnail */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
                 <img
@@ -64,39 +83,51 @@ const OnRoadPage = () => {
                 />
               </div>
 
-              {/* Text */}
-              <div className="mt-4 max-w-[519px]">
+              {/* ================= TEXT ================= */}
+              <div className="mt-4 max-w-[520px]">
+
+                {/* Title */}
                 <h3
                   className="
                     font-rethink
-                    font-bold
-                    text-[20px]
-                    leading-none
+                    font-medium
+                    text-[18px]
+                    leading-[22px]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
-                    line-clamp-2
                   "
                 >
                   {card.title}
                 </h3>
 
+                {/* Description */}
                 <p
                   className="
-                    mt-3
+                    mt-2
                     text-[14px]
-                    leading-[14px]
-                    tracking-[-0.02em]
-                    font-normal
-                    text-[#737373]
-                    line-clamp-3
+                    leading-[20px]
+                    tracking-[-0.01em]
+                    text-[#6B7280]
+                    overflow-visible
+                    max-h-none
                   "
                 >
                   {card.description}
                 </p>
 
-                <p className="text-xs text-gray-400 mt-4 font-mono">
+                {/* Date */}
+                <p
+                  className="
+                    mt-2
+                    text-[12px]
+                    leading-[16px]
+                    text-[#9CA3AF]
+                    font-mono
+                  "
+                >
                   {card.date}
                 </p>
+
               </div>
             </div>
           ))}
@@ -106,4 +137,4 @@ const OnRoadPage = () => {
   );
 };
 
-export default OnRoadPage;
+export default MotionPlanningPage;

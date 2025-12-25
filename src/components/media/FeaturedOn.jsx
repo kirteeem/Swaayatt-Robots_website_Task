@@ -6,15 +6,27 @@ export default function FeaturedOn() {
 
   return (
     <section className="bg-gray-50 py-14">
-      {/* TITLE */}
-      <p className="text-center text-[14px] text-gray-500 mb-8">
+
+      {/* ================= TITLE ================= */}
+      <p
+        className="
+          text-center
+          font-rethink
+          font-normal
+          text-[14px]
+          leading-[100%]
+          tracking-[-0.02em]
+          text-[#737373]
+          mb-8
+        "
+      >
         Featured on
       </p>
 
-      {/* LOGOS */}
+      {/* ================= LOGOS ================= */}
       <div
         className="
-          max-w-screen-xl
+          max-w-[1440px]
           mx-auto
           px-6
           flex

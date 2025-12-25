@@ -1,159 +1,142 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { researchMenu } from "../data/researchMenu";
+
+const researchCollage = [
+  "/images/research/collage/img-1.webp",
+  "/images/research/collage/img-2.png",
+  "/images/research/collage/img-3.jpg",
+  "/images/research/collage/img-4.webp",
+  "/images/research/collage/img-5.webp",
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [researchOpen, setResearchOpen] = useState(false);
-  const [mobileResearchOpen, setMobileResearchOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
 
-  const researchRef = useRef(null);
-
-  const navItems = ["media", "blogs", "career", "contact"];
-
-  // Close desktop Research dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        researchRef.current &&
-        !researchRef.current.contains(event.target)
-      ) {
-        setResearchOpen(false);
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
       }
     };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   return (
-    <header className="w-full border-b bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* TOP BAR */}
-        <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-[1000] bg-white border-b">
+      <div className="mx-auto max-w-[1600px] px-[clamp(24px,6vw,96px)]">
+        <div className="h-[80px] flex items-center justify-between">
 
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
               src="/images/Swaayatt/Swaayatt.png"
+              className="w-12 h-12 object-contain"
               alt="Swaayatt Robots"
-              className="w-14 h-14 object-contain"
             />
-            <div className="leading-none">
-              <div className="font-bold text-sm">SWAAYATT</div>
-              <div className="font-bold text-sm">ROBOTS</div>
+            <div className="font-semibold text-[16px] leading-tight text-[#1C1C1C]">
+              <div>SWAAYATT</div>
+              <div>ROBOTS</div>
             </div>
           </Link>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden md:flex gap-6 text-sm font-medium items-center">
+          {/* NAV */}
+          <nav className="flex items-center gap-[48px] text-[18px] font-semibold text-[#1C1C1C]">
 
-            {/* Research Dropdown (Desktop) */}
-            <div className="relative" ref={researchRef}>
+            {/* RESEARCH */}
+            <div ref={ref} className="relative">
               <button
-                onClick={() => setResearchOpen((prev) => !prev)}
-                className="flex items-center gap-1 text-gray-900 hover:text-gray-500"
+                onClick={() => setOpen((p) => !p)}
+                className="flex items-center gap-2 hover:opacity-80"
               >
-                Research <ChevronDown size={14} />
+                Research <ChevronDown size={18} />
               </button>
 
-              {researchOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white border rounded-md shadow-lg py-2 z-50">
-                  {[
-                    ["off-road", "Off Road"],
-                    ["on-road", "On Road"],
-                    ["mapping-localization", "Mapping & Localization"],
-                    ["motion-planning", "Motion Planning"],
-                  ].map(([path, label]) => (
-                    <Link
-                      key={path}
-                      to={`/research/${path}`}
-                      onClick={() => setResearchOpen(false)}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100"
-                    >
-                      {label}
-                    </Link>
-                  ))}
+              {open && (
+                <div
+                  className="
+                    absolute left-[-180px] top-[68px]
+                    w-[721px] h-[303px]
+                    bg-white
+                    border border-[#E5E7EB]
+                    rounded-[16px]
+                    shadow-2xl
+                    z-[2000]
+                    flex
+                    overflow-hidden
+                  "
+                >
+                  {/* LEFT COLLAGE */}
+                  <div className="relative w-[420px] h-full overflow-hidden rounded-l-[16px]">
+                    <div className="grid grid-cols-5 h-full">
+                      {researchCollage.map((img, i) => (
+                        <img
+                          key={i}
+                          src={img}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      ))}
+                    </div>
+
+                    {/* OVERLAY */}
+                    <div className="absolute inset-0 bg-black/55" />
+
+                    {/* TEXT */}
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <div className="flex items-center gap-3 mb-3">
+                        <h3 className="text-[36px] font-semibold leading-none">
+                          Research
+                        </h3>
+                        <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
+                          <span className="text-xl leading-none">›</span>
+                        </div>
+                      </div>
+
+                      <p className="text-[16px] leading-snug max-w-[340px] opacity-90">
+                        Dive into the challenges, breakthroughs, and the
+                        potential of self-driving cars in one of the world’s
+                        most complex driving environments.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* RIGHT MENU */}
+                  <div className="flex-1 px-7 py-7 flex flex-col justify-center gap-1.5">
+  {researchMenu.map((item) => (
+    <Link
+      key={item.label}
+      to={item.path}
+      onClick={() => setOpen(false)}
+      className="
+        px-4 py-[10px]
+        rounded-[8px]
+        text-[16px]
+        font-normal
+        leading-[1.2]
+        text-[#1A212F]
+        hover:bg-[#E9F0FF]
+        transition
+      "
+    >
+      {item.label}
+    </Link>
+  ))}
+</div>
+
                 </div>
               )}
             </div>
 
-            {/* Other Desktop Links */}
-            {navItems.map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                className="text-gray-900 hover:text-gray-500"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
+            <Link to="/media" className="hover:opacity-80">Media</Link>
+            <Link to="/blogs" className="hover:opacity-80">Blogs</Link>
+            <Link to="/career" className="hover:opacity-80">Career</Link>
+            <Link to="/contact" className="hover:opacity-80">Contact</Link>
           </nav>
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-          >
-            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
         </div>
-
-        {/* MOBILE NAVIGATION */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden border-t py-4 text-sm space-y-2">
-
-            {/* Research Accordion */}
-            <button
-              onClick={() => setMobileResearchOpen((prev) => !prev)}
-              className="w-full flex items-center justify-between px-2 py-2 font-semibold"
-            >
-              <span>Research</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${
-                  mobileResearchOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileResearchOpen && (
-              <div className="pl-6 space-y-1">
-                {[
-                  ["off-road", "Off Road"],
-                  ["on-road", "On Road"],
-                  ["mapping-localization", "Mapping & Localization"],
-                  ["motion-planning", "Motion Planning"],
-                ].map(([path, label]) => (
-                  <Link
-                    key={path}
-                    to={`/research/${path}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1 text-gray-600 hover:text-gray-900"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {/* Other Mobile Links */}
-            {navItems.map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-2 py-2 hover:text-gray-500"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
-          </nav>
-        )}
-
       </div>
     </header>
   );

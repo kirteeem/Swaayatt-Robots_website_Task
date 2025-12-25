@@ -6,3 +6,28 @@
   font-family: "Rethink Sans";
   font-weight: 400;
 }
+
+/* 🔑 REQUIRED for zoom stability */
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+}
+
+
+/* Reduce font compression perception */
+body {
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, p {
+  line-height: 1.25;
+}
+
+
+@keyframes slideUp {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-32px); }
+  50% { transform: translateY(-64px); }
+  75% { transform: translateY(-96px); }
+  100% { transform: translateY(0); }
+}
