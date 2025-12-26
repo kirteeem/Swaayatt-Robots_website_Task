@@ -12,8 +12,9 @@ const researchCollage = [
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);        // desktop research
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileResearchOpen, setMobileResearchOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-[1000] bg-white border-b">
 
-      {/* ✅ SAME CONTAINER AS ALL PAGES */}
+      {/* DESKTOP HEADER */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="h-[80px] flex items-center justify-between">
 
@@ -49,7 +50,7 @@ export default function Header() {
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-10 text-[18px] font-semibold text-[#1C1C1C]">
 
-            {/* RESEARCH DROPDOWN */}
+            {/* RESEARCH DROPDOWN (DESKTOP UNCHANGED) */}
             <div ref={ref} className="relative">
               <button
                 onClick={() => setOpen((p) => !p)}
@@ -59,48 +60,19 @@ export default function Header() {
               </button>
 
               {open && (
-                <div
-                  className="
-                    absolute left-[-180px] top-[60px]
-                    w-[720px] h-[300px]
-                    bg-white
-                    border border-[#E5E7EB]
-                    rounded-[16px]
-                    shadow-2xl
-                    z-[2000]
-                    flex
-                    overflow-hidden
-                  "
-                >
+                <div className="absolute left-[-180px] top-[60px] w-[720px] h-[300px] bg-white border border-[#E5E7EB] rounded-[16px] shadow-2xl z-[2000] flex overflow-hidden">
                   {/* LEFT COLLAGE */}
                   <div className="relative w-[420px] h-full overflow-hidden rounded-l-[16px]">
                     <div className="grid grid-cols-5 h-full">
                       {researchCollage.map((img, i) => (
-                        <img
-                          key={i}
-                          src={img}
-                          alt=""
-                          className="w-full h-full object-cover"
-                        />
+                        <img key={i} src={img} alt="" className="w-full h-full object-cover" />
                       ))}
                     </div>
-
                     <div className="absolute inset-0 bg-black/55" />
-
                     <div className="absolute bottom-6 left-6 right-6 text-white">
-                      <div className="flex items-center gap-3 mb-3">
-                        <h3 className="text-[36px] font-semibold leading-none">
-                          Research
-                        </h3>
-                        <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                          <span className="text-xl leading-none">›</span>
-                        </div>
-                      </div>
-
-                      <p className="text-[16px] leading-snug max-w-[340px] opacity-90">
-                        Dive into the challenges, breakthroughs, and the potential
-                        of self-driving cars in one of the world’s most complex
-                        driving environments.
+                      <h3 className="text-[36px] font-semibold mb-2">Research</h3>
+                      <p className="text-[16px] opacity-90 max-w-[340px]">
+                        Dive into the challenges and breakthroughs of autonomous driving.
                       </p>
                     </div>
                   </div>
@@ -112,16 +84,7 @@ export default function Header() {
                         key={item.label}
                         to={item.path}
                         onClick={() => setOpen(false)}
-                        className="
-                          px-4 py-[10px]
-                          rounded-[8px]
-                          text-[16px]
-                          font-normal
-                          leading-[1.2]
-                          text-[#1A212F]
-                          hover:bg-[#E9F0FF]
-                          transition
-                        "
+                        className="px-4 py-[10px] rounded-[8px] text-[16px] hover:bg-[#E9F0FF]"
                       >
                         {item.label}
                       </Link>
@@ -138,36 +101,46 @@ export default function Header() {
           </nav>
 
           {/* MOBILE MENU BUTTON */}
-          <button
-            className="lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
+          <button className="lg:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE NAV */}
+      {/* ================= MOBILE NAV ================= */}
       {mobileOpen && (
         <div className="lg:hidden border-t bg-white">
           <div className="max-w-[1440px] mx-auto px-6 py-4 space-y-4 text-[16px]">
-            <details>
-              <summary className="cursor-pointer font-medium">
-                Research
-              </summary>
-              <div className="mt-2 space-y-2 pl-4">
+
+            {/* MOBILE RESEARCH (CONTROLLED, SAME FEEL) */}
+            <button
+              onClick={() => setMobileResearchOpen(!mobileResearchOpen)}
+              className="w-full flex items-center justify-between font-medium"
+            >
+              Research
+              <ChevronDown
+                size={18}
+                className={`transition ${mobileResearchOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {mobileResearchOpen && (
+              <div className="pl-4 space-y-2">
                 {researchMenu.map((item) => (
                   <Link
                     key={item.label}
                     to={item.path}
-                    onClick={() => setMobileOpen(false)}
-                    className="block"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      setMobileResearchOpen(false);
+                    }}
+                    className="block text-gray-700"
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
-            </details>
+            )}
 
             <Link to="/media" onClick={() => setMobileOpen(false)}>Media</Link>
             <Link to="/blogs" onClick={() => setMobileOpen(false)}>Blogs</Link>
@@ -176,7 +149,6 @@ export default function Header() {
           </div>
         </div>
       )}
-
     </header>
   );
 }

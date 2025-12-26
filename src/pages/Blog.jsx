@@ -15,7 +15,7 @@ const blogs = [
     image: "/images/Blogs/Blogs.webp",
     title: "Autonomous Driving: Ellipsoidal Constrained Agent Navigation",
     description:
-      "Motion and path planning in completely unknown environments is an extremely challenging problem.",
+      "Motion and path planning in completely unknown environments is an extremely challenging problem. Autonomous navigation frameworks or algorithms for solving such navigation problems can find tremendous use case in various applications, such as, mobile robots navigation in hostile environments, search and rescue robots, exploratory robots and vehicles, and autonomous vehicles in general.",
     date: "2023-10-17",
   },
   {
@@ -24,7 +24,7 @@ const blogs = [
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
-      "Autonomous Driving is undeniably the most formidable AI challenge of this decade.",
+      "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
     date: "2023-10-28",
   },
   {
@@ -33,7 +33,7 @@ const blogs = [
     title:
       "Introducing Bidirectional Negotiation to the World of Autonomous Driving: Biologically Inspired Model",
     description:
-      "Autonomous Driving is undeniably the most formidable AI challenge of this decade.",
+      "Autonomous Driving is undeniably the most formidable AI challenge of this decade, and it remains a dynamic focus of active research. Autonomous vehicles often have to negotiate not just unstructured environmental conditions, but also unpredictable obstacles — where each such obstacle is an agent with its own behaviour model.",
     date: "2023-10-28",
   },
 ];
@@ -58,7 +58,7 @@ export default function Blogs() {
 
       {/* ================= BLOG GRID ================= */}
       <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
           {blogs.map((blog) => (
             <Link key={blog.id} to={`/blogs/${blog.id}`} className="block">
@@ -69,29 +69,21 @@ export default function Blogs() {
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-[220px] sm:h-[240px] object-cover"
+                    className="w-full h-[200px] object-cover"
                   />
 
                   {/* WATERMARK */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <img
-                      src="/images/Swaayatt/logo-mark.png"
-                      alt="Swaayatt Robots"
-                      className="w-6 h-6"
-                    />
-                    <span className="text-white text-[12px] font-medium opacity-90">
-                      Swaayatt Robots
-                    </span>
-                  </div>
+                  
                 </div>
 
                 {/* CONTENT */}
                 <div className="px-5 pt-4 pb-5">
-                  <h3 className="font-rethink font-medium text-[20px] leading-[1.3] tracking-[-0.02em] text-[#3F3F3F] mb-3 line-clamp-2">
-                    {blog.title}
-                  </h3>
+                  <h3 className="font-rethink font-medium text-[20px] leading-[1.35] tracking-[-0.02em] text-[#3F3F3F] mb-3">
+  {blog.title}
+</h3>
 
-                  <p className="font-rethink text-[14px] leading-[1.5] tracking-[-0.02em] text-[#737373] mb-4 line-clamp-3">
+
+                  <p className="font-rethink text-[14px] leading-[1.5] tracking-[-0.02em] text-[#737373] mb-4 line-clamp-4">
                     {blog.description}
                   </p>
 

@@ -21,22 +21,27 @@ export default function MediaHero() {
       </h1>
 
       {/* ✅ SUBTITLE — MATCHES FIGMA EXACTLY */}
-      <p
-        className="
-          mt-6
-          max-w-[820px]
-          mx-auto
+<p
+  className="
+    mt-6
+    max-w-[693px]
+    mx-auto
 
-          font-rethink
-          font-normal
-          text-[20px]
-          leading-[100%]
-          tracking-[-0.02em]
-          text-[#1A212F]/70
-        "
-      >
-        From cutting-edge tech advancements to company milestones, get the inside scoop on everything happening at Swaayatt Robots. Stay tuned for the latest breakthroughs and updates shaping the future of autonomous driving!
-      </p>
+    font-rethink
+    font-normal
+    text-[20px]
+    leading-[1.35]
+    tracking-[-0.02em]
+    text-[#1A212F]/70
+    text-center
+  "
+>
+  From cutting-edge tech advancements to company milestones, get the inside
+  scoop on everything happening at Swaayatt Robots. Stay tuned for the latest
+  breakthroughs and updates shaping the future of autonomous driving!
+</p>
+
+
 
     </section>
   );

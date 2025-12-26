@@ -34,7 +34,8 @@ const OffRoadPage = () => {
             </h1>
 
             <p className="max-w-xl mt-2 text-[14px] sm:text-[16px] md:text-[18px] opacity-90">
-              Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial, and Unpredictable Terrains
+              Revolutionizing Off-Road Autonomy: Conquering Uneven, Adversarial,
+              and Unpredictable Terrains
             </p>
           </div>
         </div>
@@ -44,15 +45,19 @@ const OffRoadPage = () => {
       <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
         <p
           className="
-            max-w-5xl
-            text-[16px]
-            sm:text-[18px]
-            leading-[28px]
-            text-[#4B5563]
+            max-w-[1497px]
+            font-rethink
+            font-medium
+            text-[32px]
+            leading-[1]
+            tracking-[-0.02em]
+            text-[#686868]
           "
         >
-          These demonstrations highlight autonomous vehicles navigating
-          challenging off-road terrains using advanced learning-based systems.
+          These demonstrations highlight our autonomous vehicles tackling
+          challenging off-road terrains, leveraging advanced reinforcement
+          learning to redefine decision-making across diverse and unpredictable
+          conditions for future Level-5 autonomy.
         </p>
       </section>
 
@@ -62,23 +67,41 @@ const OffRoadPage = () => {
           {offroadVideos.map((card) => (
             <div key={card.id} className="flex flex-col">
 
-              {/* THUMBNAIL */}
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200">
+              {/* ================= THUMBNAIL ================= */}
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 group cursor-pointer">
+
+                {/* IMAGE */}
                 <img
                   src={card.thumbnail}
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
+
+                {/* DARK OVERLAY */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+
+                {/* YOUTUBE RECTANGLE PLAY ICON */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-[72px] h-[48px] bg-[#FF0000] rounded-xl flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-7 h-7 fill-white ml-[2px]"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+
               </div>
 
-              {/* TEXT */}
-              <div className="mt-4 max-w-[520px]">
+              {/* ================= TEXT ================= */}
+              <div className="mt-4 max-w-[519px]">
                 <h3
                   className="
                     font-rethink
-                    font-medium
-                    text-[18px]
-                    leading-[22px]
+                    font-bold
+                    text-[20px]
+                    leading-[1]
                     tracking-[-0.02em]
                     text-[#3F3F3F]
                   "
@@ -88,17 +111,19 @@ const OffRoadPage = () => {
 
                 <p
                   className="
-                    mt-2
+                    mt-3
+                    font-rethink
+                    font-normal
                     text-[14px]
-                    leading-[20px]
-                    tracking-[-0.01em]
-                    text-[#6B7280]
+                    leading-[1]
+                    tracking-[-0.02em]
+                    text-[#737373]
                   "
                 >
                   {card.description}
                 </p>
 
-                <p className="mt-2 text-[12px] text-[#9CA3AF] font-mono">
+                <p className="mt-3 text-[12px] text-[#9CA3AF] font-mono">
                   {card.date}
                 </p>
               </div>
