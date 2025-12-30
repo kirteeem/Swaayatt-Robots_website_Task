@@ -2,8 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { researchMenu } from "../data/researchMenu";
-import { useTheme } from "../../src/context/ThemeContext";
-
+import { useTheme } from "../context/ThemeContext";
 const researchCollage = [
   "/images/research/collage/img-1.webp",
   "/images/research/collage/img-2.png",
@@ -11,16 +10,13 @@ const researchCollage = [
   "/images/research/collage/img-4.webp",
   "/images/research/collage/img-5.webp",
 ];
-
 export default function Header({ variant = "default" }) {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileResearchOpen, setMobileResearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const ref = useRef(null);
-
   const { isDarkMode, toggleTheme } = useTheme();
-
   useEffect(() => {
     const handler = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -30,19 +26,15 @@ export default function Header({ variant = "default" }) {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
-
   useEffect(() => {
     if (variant !== "home") return;
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [variant]);
-
   const isHome = variant === "home";
-
-  // ✅ FIX: Theme ONLY from ThemeContext
-  const useDarkTheme = isDarkMode;
-
+  const isDarkVariant = variant === "dark";
+  const useDarkTheme = isDarkMode || isDarkVariant || (isHome && !scrolled);
   return (
     <header
       className={`
@@ -58,9 +50,8 @@ export default function Header({ variant = "default" }) {
         }
       `}
     >
-      <div className="w-[93vw] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[93vw] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="h-[80px] flex items-center justify-between">
-
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
@@ -77,7 +68,6 @@ export default function Header({ variant = "default" }) {
               <div>ROBOTS</div>
             </div>
           </Link>
-
           {/* DESKTOP NAV */}
           <nav
             className={`hidden lg:flex items-center gap-10 text-[18px] font-semibold ${
@@ -92,13 +82,18 @@ export default function Header({ variant = "default" }) {
               >
                 Research <ChevronDown size={18} />
               </button>
-
               {open && (
                 <div className="absolute left-[-180px] top-[60px] w-[720px] h-[300px] bg-white dark:bg-gray-900 rounded-[16px] shadow-2xl flex overflow-hidden border dark:border-gray-800">
+                  {/* LEFT COLLAGE */}
                   <div className="relative w-[420px] h-full overflow-hidden">
                     <div className="grid grid-cols-5 h-full">
                       {researchCollage.map((img, i) => (
-                        <img key={i} src={img} className="w-full h-full object-cover" alt="" />
+                        <img
+                          key={i}
+                          src={img}
+                          className="w-full h-full object-cover"
+                          alt=""
+                        />
                       ))}
                     </div>
                     <div className="absolute inset-0 bg-black/60" />
@@ -109,7 +104,7 @@ export default function Header({ variant = "default" }) {
                       </p>
                     </div>
                   </div>
-
+                  {/* RIGHT MENU */}
                   <div className="flex-1 px-7 py-7 flex flex-col justify-center">
                     {researchMenu.map((item) => (
                       <Link
@@ -125,33 +120,109 @@ export default function Header({ variant = "default" }) {
                 </div>
               )}
             </div>
-
-            <Link to="/media">Media</Link>
-            <Link to="/blogs">Blogs</Link>
-            <Link to="/career">Career</Link>
-            <Link to="/contact">Contact</Link>
-
+            <Link to="/media" className="hover:opacity-80 transition-opacity">
+              Media
+            </Link>
+            <Link to="/blogs" className="hover:opacity-80 transition-opacity">
+              Blogs
+            </Link>
+            <Link to="/career" className="hover:opacity-80 transition-opacity">
+              Career
+            </Link>
+            <Link to="/contact" className="hover:opacity-80 transition-opacity">
+              Contact
+            </Link>
             {/* THEME TOGGLE */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? (
+                <Sun size={20} className="text-yellow-500" />
+              ) : (
+                <Moon size={20} className="text-gray-700" />
+              )}
             </button>
           </nav>
-
-          {/* MOBILE */}
+          {/* MOBILE BUTTONS */}
           <div className="flex items-center gap-4 lg:hidden">
-            <button onClick={toggleTheme}>
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            <button
+              onClick={toggleTheme}
+              className="p-2"
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? (
+                <Sun size={20} className={useDarkTheme ? "text-yellow-500" : "text-gray-700"} />
+              ) : (
+                <Moon size={20} className={useDarkTheme ? "text-white" : "text-gray-700"} />
+              )}
             </button>
-
             <button onClick={() => setMobileOpen(!mobileOpen)}>
-              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+              {mobileOpen ? (
+                <X size={26} className={useDarkTheme ? "text-white" : "text-gray-800"} />
+              ) : (
+                <Menu size={26} className={useDarkTheme ? "text-white" : "text-gray-800"} />
+              )}
             </button>
           </div>
         </div>
       </div>
+      {/* MOBILE NAV */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+          <div className="px-6 py-4 space-y-4">
+            <button
+              onClick={() => setMobileResearchOpen(!mobileResearchOpen)}
+              className="w-full flex justify-between items-center py-2 text-gray-800 dark:text-gray-200"
+            >
+              Research <ChevronDown />
+            </button>
+            {mobileResearchOpen && (
+              <div className="pl-4 space-y-2 text-gray-600 dark:text-gray-400">
+                {researchMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    onClick={() => setMobileOpen(false)}
+                    className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+            <Link
+              to="/media"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Media
+            </Link>
+            <Link
+              to="/blogs"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/career"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Career
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
