@@ -8,12 +8,10 @@ export default function Contact() {
     <div className={`${isDarkMode ? 'bg-black' : 'bg-white'} mt-20 transition-colors duration-300`}>
       <main className="py-12 sm:py-16">
 
-        {/* OUTER CONTAINER — SAME AS OTHER PAGES */}
         <div className="sm:max-w-[93vw] max-w-[100vw] mx-auto px-4 sm:px-10 lg:px-16">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
-            {/* ================= CONTACT INFO ================= */}
             <div className={`border rounded-2xl p-6 sm:p-8 transition-colors duration-300 ${
               isDarkMode 
                 ? 'border-gray-800 bg-gray-900' 
