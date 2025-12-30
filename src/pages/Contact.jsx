@@ -18,7 +18,7 @@ export default function Contact() {
                 : 'border-gray-200 bg-white'
             }`}>
 
-              <h1 className={`text-[28px] sm:text-[32px] font-[550] font-Rethink   transition-colors duration-300 ${
+              <h1 className={`text-[28px] sm:text-[32px] font-[550] font-rethink sans  transition-colors duration-300 ${
                 isDarkMode ? 'text-white' : 'text-[#1A212F]'
               }`}>
                 Contact Us

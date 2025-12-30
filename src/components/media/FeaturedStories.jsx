@@ -88,15 +88,20 @@ export default function FeaturedStories() {
           {/* ARROWS */}
           <div className="flex bg-white dark:bg-[#1F1F1F] justify-end gap-3 mt-6">
 
-            <div className=" p-1 border rounded-full">
-              <i onClick={next} class="ri-arrow-left-s-line text-3xl"></i>
-            </div>
+            <div
+  onClick={next}
+  className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+>
+  <i className="ri-arrow-left-s-line text-3xl"></i>
+</div>
 
+<div
+  onClick={prev}
+  className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+>
+  <i className="ri-arrow-right-s-line text-3xl"></i>
+</div>
 
-            <div className="p-1 border rounded-full">
-              <i onClick={prev} class="ri-arrow-right-s-line text-3xl"></i>
-
-            </div>
           </div>
 
         </div>

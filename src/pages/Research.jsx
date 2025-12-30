@@ -99,13 +99,28 @@ export default function Research() {
               </div>
 
               <div className="flex gap-3">
-                <ArrowButton onClick={() => scroll(onRoadRef, "left")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
-                </ArrowButton>
-                <ArrowButton onClick={() => scroll(onRoadRef, "right")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
-                </ArrowButton>
+               <div
+             onClick={() => scroll(onRoadRef, "left")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-left-s-line text-3xl"></i>
+            </div>
+
+            <div
+          onClick={() => scroll(onRoadRef, "right")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-right-s-line text-3xl"></i>
+            </div>
               </div>
+
+
+            
+
+
+
+
+
             </div>
 
             <div
@@ -125,14 +140,31 @@ export default function Research() {
                 Off Road <span className="text-[20px]">↗</span>
               </div>
 
+            
+
+
+
+
               <div className="flex gap-3">
-                <ArrowButton onClick={() => scroll(offRoadRef, "left")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
-                </ArrowButton>
-                <ArrowButton onClick={() => scroll(offRoadRef, "right")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
-                </ArrowButton>
+               <div
+             onClick={() => scroll(offRoadRef, "left")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-left-s-line text-3xl"></i>
+            </div>
+
+            <div
+          onClick={() => scroll(offRoadRef, "right")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-right-s-line text-3xl"></i>
+            </div>
               </div>
+
+
+
+
+
             </div>
 
             <div
@@ -153,14 +185,26 @@ export default function Research() {
                 <span className="text-[22px] sm:text-[24px]">↗</span>
               </h2>
 
+              
               <div className="flex gap-3">
-                <ArrowButton onClick={() => scroll(motionRef, "left")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
-                </ArrowButton>
-                <ArrowButton onClick={() => scroll(motionRef, "right")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
-                </ArrowButton>
+               <div
+             onClick={() => scroll(motionRef, "left")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-left-s-line text-3xl"></i>
+            </div>
+
+            <div
+          onClick={() => scroll(motionRef, "right")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-right-s-line text-3xl"></i>
+            </div>
               </div>
+
+
+
+
             </div>
 
             <div
@@ -186,13 +230,23 @@ export default function Research() {
               </h2>
 
               <div className="flex gap-3">
-                <ArrowButton onClick={() => scroll(perceptionRef, "left")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
-                </ArrowButton>
-                <ArrowButton onClick={() => scroll(perceptionRef, "right")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
-                </ArrowButton>
+               <div
+             onClick={() => scroll(perceptionRef, "left")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-left-s-line text-3xl"></i>
+            </div>
+
+            <div
+          onClick={() => scroll(perceptionRef, "right")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-right-s-line text-3xl"></i>
+            </div>
               </div>
+
+
+
             </div>
 
             <div
@@ -212,14 +266,25 @@ export default function Research() {
                 Mapping & Localization <span className="text-[22px] sm:text-[24px]">↗</span>
               </h2>
 
+            
               <div className="flex gap-3">
-                <ArrowButton onClick={() => scroll(mappingRef, "left")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
-                </ArrowButton>
-                <ArrowButton onClick={() => scroll(mappingRef, "right")} isDarkMode={isDarkMode}>
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
-                </ArrowButton>
+               <div
+             onClick={() => scroll(mappingRef, "left")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-left-s-line text-3xl"></i>
+            </div>
+
+            <div
+          onClick={() => scroll(mappingRef, "right")} isDarkMode={isDarkMode}
+              className="w-10 h-10 flex items-center justify-center border rounded-full cursor-pointer"
+            >
+              <i className="ri-arrow-right-s-line text-3xl"></i>
+            </div>
               </div>
+
+
+
             </div>
 
             <div
