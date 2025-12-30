@@ -1,15 +1,18 @@
 import React from "react";
 import offroadVideos from "../data/offroadVideo";
+import { useTheme } from "../context/ThemeContext";
 
-/* ================= HERO IMAGE ================= */
 const heroImage = "/images/research/offroad/Offroad.webp";
 
 const OffRoadPage = () => {
+  // just to trigger rerender on toggle
+  useTheme();
+
   return (
-    <main className="min-h-screen bg-white text-gray-800 pt-[112.38px]">
+    <main className="min-h-screen bg-white text-gray-800 dark:bg-black dark:text-white pt-[112.38px] transition-colors duration-300">
 
       {/* ================= HERO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+      <section className="w-[88vw] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
           <img
             src={heroImage}
@@ -18,18 +21,7 @@ const OffRoadPage = () => {
           />
 
           <div className="absolute inset-0 flex flex-col justify-center text-white px-6 sm:px-10 lg:px-16">
-            <h1
-              className="
-                font-rethink
-                font-medium
-                tracking-[-0.02em]
-                leading-none
-                text-[36px]
-                sm:text-[44px]
-                md:text-[56px]
-                lg:text-[68px]
-              "
-            >
+            <h1 className="font-rethink font-medium tracking-[-0.02em] leading-none text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px]">
               Off Road
             </h1>
 
@@ -42,18 +34,8 @@ const OffRoadPage = () => {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
-        <p
-          className="
-            max-w-[1497px]
-            font-rethink
-            font-medium
-            text-[32px]
-            leading-[1]
-            tracking-[-0.02em]
-            text-[#686868]
-          "
-        >
+      <section className="w-[88vw] mx-auto px-6 sm:px-10 lg:px-16 py-12">
+        <p className="max-w-[1497px] font-rethink font-medium text-[32px] leading-[1] tracking-[-0.02em] text-[#686868] dark:text-[#A3A3A3]">
           These demonstrations highlight our autonomous vehicles tackling
           challenging off-road terrains, leveraging advanced reinforcement
           learning to redefine decision-making across diverse and unpredictable
@@ -62,59 +44,56 @@ const OffRoadPage = () => {
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="w-[88vw] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {offroadVideos.map((card) => (
             <div key={card.id} className="flex flex-col">
 
-              {/* ================= THUMBNAIL ================= */}
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 group cursor-pointer">
-                <img
-                  src={card.thumbnail}
-                  alt={card.title}
-                  className="w-full h-full object-cover"
-                />
+              {/* THUMBNAIL */}
+             {/* ================= THUMBNAIL ================= */}
+<div className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 dark:bg-[#111] group cursor-pointer">
 
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+  {/* IMAGE */}
+  <img
+    src={card.thumbnail}
+    alt={card.title}
+    className="w-full h-full object-cover"
+  />
 
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-[72px] h-[48px] bg-[#FF0000] rounded-xl flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110">
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-7 h-7 fill-white ml-[2px]"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
 
-              {/* ================= TEXT ================= */}
+  {/* ▶ YOUTUBE PLAY BUTTON (RECTANGLE) */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div
+      className="
+        w-[72px] h-[48px]
+        bg-[#FF0000]
+        rounded-xl
+        flex items-center justify-center
+        shadow-xl
+        transition-transform duration-300
+        group-hover:scale-110
+      "
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="w-7 h-7 fill-white ml-[2px]"
+      >
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+              {/* TEXT */}
               <div className="mt-4 max-w-[519px]">
-                <h3
-                  className="
-                    font-rethink
-                    font-bold
-                    text-[20px]
-                    leading-[1]
-                    tracking-[-0.02em]
-                    text-[#3F3F3F]
-                  "
-                >
+                <h3 className="font-rethink font-bold text-[20px] leading-[1] tracking-[-0.02em] text-[#3F3F3F] dark:text-white">
                   {card.title}
                 </h3>
 
-                <p
-                  className="
-                    mt-3
-                    font-rethink
-                    font-normal
-                    text-[14px]
-                    leading-[1]
-                    tracking-[-0.02em]
-                    text-[#737373]
-                  "
-                >
+                <p className="mt-3 font-rethink font-normal text-[14px] leading-[1] tracking-[-0.02em] text-[#737373] dark:text-[#A3A3A3]">
                   {card.description}
                 </p>
 
@@ -133,4 +112,3 @@ const OffRoadPage = () => {
 };
 
 export default OffRoadPage;
-  

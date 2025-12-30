@@ -16,19 +16,20 @@ export default function TwitterSpotlight() {
     <section className="max-w-[1440px] mx-auto px-6 pb-20">
 
       {/* ================= SECTION TITLE ================= */}
-      <h2
-        className="
-          font-rethink
-          font-medium
-          text-[32px]
-          leading-[100%]
-          tracking-[-0.02em]
-          text-[#101010]
-          mb-8
-        "
-      >
-        Twitter Spotlight
-      </h2>
+  <h2
+  className="
+    font-rethink
+    font-medium
+    text-[32px]
+    leading-[100%]
+    tracking-[-0.02em]
+    text-[#101010] dark:text-white
+    mb-8
+  "
+>
+  Twitter Spotlight
+</h2>
+
 
       {/* ================= GRID ================= */}
       <div

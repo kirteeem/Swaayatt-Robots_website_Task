@@ -1,16 +1,15 @@
 export default function MediaHero() {
   return (
-    <section className="text-center max-w-[1440px] mx-auto px-6 pt-20 pb-16">
+    <section className="text-center max-w-[1440px] mx-auto px-6 pt-[112.38px] pb-16">
 
-      {/* HEADING (already correct) */}
+      {/* HEADING */}
       <h1
         className="
           font-rethink
           font-medium
-          text-[#1A212F]
+          text-[#1A212F] dark:text-white
           tracking-[-0.02em]
           leading-[100%]
-
           text-[36px]
           sm:text-[44px]
           md:text-[56px]
@@ -20,28 +19,25 @@ export default function MediaHero() {
         News & Media
       </h1>
 
-      {/* ✅ SUBTITLE — MATCHES FIGMA EXACTLY */}
-<p
-  className="
-    mt-6
-    max-w-[693px]
-    mx-auto
-
-    font-rethink
-    font-normal
-    text-[20px]
-    leading-[1.35]
-    tracking-[-0.02em]
-    text-[#1A212F]/70
-    text-center
-  "
->
-  From cutting-edge tech advancements to company milestones, get the inside
-  scoop on everything happening at Swaayatt Robots. Stay tuned for the latest
-  breakthroughs and updates shaping the future of autonomous driving!
-</p>
-
-
+      {/* SUBTITLE */}
+      <p
+        className="
+          mt-6
+          max-w-[693px]
+          mx-auto
+          font-rethink
+          font-normal
+          text-[20px]
+          leading-[1.35]
+          tracking-[-0.02em]
+          text-[#1A212F]/70 dark:text-white/70
+          text-center
+        "
+      >
+        From cutting-edge tech advancements to company milestones, get the inside
+        scoop on everything happening at Swaayatt Robots. Stay tuned for the latest
+        breakthroughs and updates shaping the future of autonomous driving!
+      </p>
 
     </section>
   );

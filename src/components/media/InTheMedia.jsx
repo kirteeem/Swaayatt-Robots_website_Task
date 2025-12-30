@@ -78,9 +78,10 @@ export default function InTheMedia() {
     }
   ];
 
-  return (
+return (
     <section className="max-w-[1440px] mx-auto px-6 pb-20">
-      {/* ================= SECTION TITLE ================= */}
+
+      {/* SECTION TITLE */}
       <h2
         className="
           font-rethink
@@ -88,42 +89,45 @@ export default function InTheMedia() {
           text-[32px]
           leading-[100%]
           tracking-[-0.02em]
-          text-[#101010]
+          text-[#101010] dark:text-white
           mb-8
         "
       >
         In the Media
       </h2>
 
-      {/* ================= GRID ================= */}
+      {/* GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {mediaCards.map((item) => (
           <div key={item.id} className="flex flex-col h-full">
 
-            {/* ================= THUMBNAIL ================= */}
-            <div className="relative rounded-[12px] overflow-hidden">
+            {/* THUMBNAIL */}
+            <div className="relative rounded-[12px] overflow-hidden group">
               <img
                 src={item.image}
                 alt={item.title}
                 className="w-full aspect-video object-cover"
               />
 
-              {/* SUBTLE OVERLAY */}
-              <div className="absolute inset-0 bg-black/15" />
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition" />
 
-              {/* PLAY ICON */}
+              {/* YOUTUBE RECTANGLE PLAY ICON */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="
-                  w-12 h-12
-                  bg-red-600
-                  rounded-full
-                  flex items-center justify-center
-                  shadow-md
-                ">
+                <div
+                  className="
+                    w-[72px] h-[48px]
+                    bg-[#FF0000]
+                    rounded-xl
+                    flex items-center justify-center
+                    shadow-lg
+                    transition-transform duration-300
+                    group-hover:scale-110
+                  "
+                >
                   <svg
                     viewBox="0 0 24 24"
-                    fill="white"
-                    className="w-5 h-5 ml-0.5"
+                    className="w-7 h-7 fill-white ml-[2px]"
                   >
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -131,7 +135,7 @@ export default function InTheMedia() {
               </div>
             </div>
 
-            {/* ================= CONTENT ================= */}
+            {/* CONTENT */}
             <div className="mt-4 flex flex-col flex-grow max-w-[519px]">
 
               {/* TITLE */}
@@ -142,7 +146,7 @@ export default function InTheMedia() {
                   text-[20px]
                   leading-[100%]
                   tracking-[-0.02em]
-                  text-[#3F3F3F]
+                  text-[#3F3F3F] dark:text-white
                 "
               >
                 {item.title}
@@ -151,22 +155,23 @@ export default function InTheMedia() {
               {/* DESCRIPTION */}
               <p
                 className="
-                  mt-2
+                  mt-3
                   font-rethink
                   font-normal
-                  text-[14px]
-                  leading-[100%]
+                  text-[16px]
+                  leading-[1.2]
                   tracking-[-0.02em]
-                  text-[#737373]
+                  text-[#737373] dark:text-white/70
                 "
               >
                 {item.description}
               </p>
 
               {/* DATE */}
-              <p className="mt-auto pt-4 text-[12px] text-gray-400">
+              <p className="mt-auto pt-4 text-[12px] text-gray-400 dark:text-white/50">
                 {item.date}
               </p>
+
             </div>
           </div>
         ))}
