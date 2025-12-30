@@ -79,7 +79,7 @@ export default function InTheMedia() {
   ];
 
 return (
-    <section className="max-w-[1440px] mx-auto px-6 pb-20">
+    <section className="sm:max-w-[88vw] max-w-[100vw]  mx-auto px-4 pb-20">
 
       {/* SECTION TITLE */}
       <h2
@@ -143,9 +143,10 @@ return (
                 className="
                   font-rethink
                   font-bold
+                  sm:w-[28vw] w-[85vw] 
                   text-[20px]
-                  leading-[100%]
-                  tracking-[-0.02em]
+                  leading-[130%]
+                  tracking-[-2%]
                   text-[#3F3F3F] dark:text-white
                 "
               >
@@ -156,10 +157,10 @@ return (
               <p
                 className="
                   mt-3
-                  font-rethink
-                  font-normal
+                  font-rethink sans
+                  font-[400]
                   text-[16px]
-                  leading-[1.2]
+                  leading-[150%]
                   tracking-[-0.02em]
                   text-[#737373] dark:text-white/70
                 "

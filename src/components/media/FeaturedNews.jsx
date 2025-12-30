@@ -23,7 +23,7 @@ export default function FeaturedNews() {
   ];
 
   return (
-    <section className="max-w-[1440px] mx-auto px-6 pb-24">
+    <section className="sm:max-w-[89vw] max-w-[100vw] mx-auto px-4 pb-24">
 
       {/* ================= HEADING ================= */}
     <h2

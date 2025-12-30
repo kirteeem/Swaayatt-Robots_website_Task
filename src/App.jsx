@@ -8,7 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blog";
-import Career from "./pages/Career";
+import Career from "./components/career/Career";
 import Media from "./pages/Media";
 import Research from "./pages/Research";
 

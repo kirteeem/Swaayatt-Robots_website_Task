@@ -9,7 +9,7 @@ const MappingAndLocalization = () => {
     <main className="min-h-screen bg-white text-gray-800 dark:bg-black dark:text-white pt-[112.38px] transition-colors duration-300">
 
       {/* ================= HERO ================= */}
-      <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16">
+      <section className="w-full sm:max-w-[93vw] max-w-[100vw] mx-auto px-4 sm:px-6 lg:px-16">
         <div className="relative h-[240px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
 
           {/* IMAGE */}
@@ -58,15 +58,15 @@ const MappingAndLocalization = () => {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16 py-12">
-        <p className="max-w-full lg:max-w-[1497px] font-rethink font-medium text-[32px] leading-[1] tracking-[-0.02em] text-[#686868] dark:text-[#A3A3A3]">
+      <section className="w-full sm:max-w-[93vw] max-w-[100vw] mx-auto px-4 sm:px-6 lg:px-16 py-12">
+        <p className="max-w-full lg:max-w-[1497px] font-rethink font-medium t text-xl sm:ext-[32px] leading-[1] tracking-[-0.02em] text-[#686868] dark:text-[#A3A3A3]">
           These videos demonstrate high-precision mapping and real-time
           localization across diverse and dynamic settings.
         </p>
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="w-full max-w-[88vw] mx-auto px-4 sm:px-6 lg:px-16 pb-20">
+      <section className="w-full sm:max-w-[93vw] max-w-[100vw] mx-auto px-4 sm:px-6 lg:px-16 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {mappingLocalizationVideos.map((card) => (
             <div key={card.id} className="flex flex-col">

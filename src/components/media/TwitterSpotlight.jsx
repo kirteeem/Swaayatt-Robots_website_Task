@@ -13,7 +13,7 @@ export default function TwitterSpotlight() {
   ];
 
   return (
-    <section className="max-w-[1440px] mx-auto px-6 pb-20">
+    <section className="sm:max-w-[89vw] max-w-[100vw] mx-auto px-6 pb-20">
 
       {/* ================= SECTION TITLE ================= */}
   <h2
@@ -49,6 +49,7 @@ export default function TwitterSpotlight() {
               rounded-[12px]
               overflow-hidden
               bg-white
+        
               border border-black/10
               hover:shadow-md
               transition

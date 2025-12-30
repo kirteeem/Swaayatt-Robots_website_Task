@@ -1,7 +1,7 @@
 export default function PageContainer({ children }) {
   return (
-    <div className="w-full px-[clamp(48px,8vw,200px)]">
-      <div className="mx-auto max-w-[1680px]">
+    <div className="w-full  ">
+      <div className="mx-auto  max-w-[93vw]">
         {children}
       </div>
     </div>

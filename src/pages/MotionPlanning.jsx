@@ -1,16 +1,19 @@
 import React from "react";
 import motionPlanningVideos from "../data/motionPlanningVideos";
+import { useTheme } from "../context/ThemeContext"; // Adjust the import path
 
 /* ================= HERO IMAGE ================= */
 const heroImage = "/images/research/motion-planning/motion.webp";
 
 const MotionPlanningPage = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <main className="min-h-screen bg-white text-gray-800">
+    <main className={`min-h-screen transition-colors pt-32 duration-300 ${isDarkMode ? 'bg-black text-gray-100' : 'bg-white text-gray-800'}`}>
 
       {/* ================= HERO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8">
-        <div className="relative h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-900">
+      <section className="sm:max-w-[93vw] max-w-[100vw]  mx-auto p-4 sm:p-0 sm:px-6 sm:px-10 lg:px-16  ">
+        <div className={`relative h-[260px] sm:h-[320px]  md:h-[400px] rounded-2xl overflow-hidden ${isDarkMode ? 'bg-gray-800' : 'bg-gray-900'}`}>
           <img
             src={heroImage}
             alt="Motion planning and decision making"
@@ -42,17 +45,17 @@ const MotionPlanningPage = () => {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12">
+      <section className="sm:max-w-[93vw] max-w-[100vw] mx-auto px-6 sm:px-10 lg:px-16 py-12">
         <p
-          className="
+          className={`
             max-w-[1497px]
             font-rethink
             font-medium
-            text-[32px]
+            sm:text-[32px] text-xl
             leading-[1]
             tracking-[-0.02em]
-            text-[#686868]
-          "
+            ${isDarkMode ? 'text-gray-300' : 'text-[#686868]'}
+          `}
         >
           These videos demonstrate advanced motion planning and adaptive
           decision-making in stochastic dynamic traffic, employing reinforcement
@@ -61,7 +64,7 @@ const MotionPlanningPage = () => {
       </section>
 
       {/* ================= CARDS ================= */}
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+      <section className="sm:max-w-[93vw] max-w-[100vw] mx-auto px-6 sm:px-10 lg:px-16 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {motionPlanningVideos.map((card) => (
             <div key={card.id} className="flex flex-col">
@@ -77,7 +80,7 @@ const MotionPlanningPage = () => {
                 />
 
                 {/* DARK OVERLAY */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className={`absolute inset-0 ${isDarkMode ? 'bg-black/40' : 'bg-black/20'} group-hover:bg-black/30 transition-colors duration-300`} />
 
                 {/* YOUTUBE RECTANGLE PLAY ICON */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -96,33 +99,33 @@ const MotionPlanningPage = () => {
               {/* ================= TEXT ================= */}
               <div className="mt-4 max-w-[519px]">
                 <h3
-                  className="
+                  className={`
                     font-rethink
                     font-bold
                     text-[20px]
-                    leading-[1]
-                    tracking-[-0.02em]
-                    text-[#3F3F3F]
-                  "
+                    leading-[1.1]
+                    tracking-[0.02em]
+                    ${isDarkMode ? 'text-gray-100' : 'text-[#3F3F3F]'}
+                  `}
                 >
                   {card.title}
                 </h3>
 
                 <p
-                  className="
+                  className={`
                     mt-3
                     font-rethink
                     font-normal
-                    text-[14px]
+                    text-[16px]
                     leading-[1]
                     tracking-[-0.02em]
-                    text-[#737373]
-                  "
+                    ${isDarkMode ? 'text-gray-300' : 'text-[#737373]'}
+                  `}
                 >
                   {card.description}
                 </p>
 
-                <p className="mt-3 text-[12px] text-[#9CA3AF] font-mono">
+                <p className={`mt-3 text-[12px] ${isDarkMode ? 'text-gray-400' : 'text-[#9CA3AF]'} font-mono`}>
                   {card.date}
                 </p>
               </div>

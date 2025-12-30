@@ -1,10 +1,11 @@
 export default function MediaHero() {
   return (
-    <section className="text-center max-w-[1440px] mx-auto px-6 pt-[112.38px] pb-16">
+    <section className="text-center max-w-[93vw] mx-auto px-6  pb-16">
 
       {/* HEADING */}
       <h1
         className="
+        pt-32
           font-rethink
           font-medium
           text-[#1A212F] dark:text-white
