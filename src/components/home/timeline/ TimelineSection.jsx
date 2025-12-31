@@ -1,26 +1,48 @@
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import GridBackground from "./GridBackground";
 import BlogNodes from "./BlogNodes";
-import CenterFeature from "./CenterFeature";
 import RoadTimeline from "./RoadTimeline";
 
-export default function TimelineSection() {
-  return (
-    <section className="relative w-full min-h-[900px] bg-black overflow-hidden">
+gsap.registerPlugin(ScrollTrigger);
 
-      {/* ================= GRID (TIC TAC TOE) ================= */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
-        {[...Array(9)].map((_, i) => (
-          <div key={i} className="border border-white/10" />
-        ))}
+export default function TimelineSection() {
+  const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useLayoutEffect(() => {
+    const st = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=3000",
+      scrub: true,
+      pin: true,
+    });
+
+    return () => st.kill();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative h-screen bg-black overflow-hidden"
+    >
+      {/* ROAD */}
+      <div className="absolute inset-0 z-10">
+        <RoadTimeline activeIndex={activeIndex} />
       </div>
 
-      {/* ================= BLOG THUMBNAILS ================= */}
-      <BlogNodes />
+      {/* IMAGES */}
+      <div className="absolute inset-0 z-30 pointer-events-none">
+        <BlogNodes onActiveChange={setActiveIndex} />
+      </div>
 
-      {/* ================= CENTER FEATURE ================= */}
-      <CenterFeature />
-
-      {/* ================= ROAD + CAR ================= */}
-      <RoadTimeline />
+      {/* GRID */}
+      <div className="absolute inset-0 z-50 pointer-events-none">
+        <GridBackground />
+      </div>
     </section>
   );
 }
