@@ -1,20 +1,12 @@
-export default function RoadTimeline() {
+// timeline/GridBackground.jsx
+
+export default function GridBackground() {
   return (
-    <div className="absolute bottom-0 w-full h-[160px]">
-
-      {/* ROAD */}
-      <div className="absolute bottom-0 w-full h-[80px] bg-[#1c1c1c]">
-        <div className="absolute inset-x-0 top-1/2 h-[2px]
-          bg-[repeating-linear-gradient(to_right,white_0_20px,transparent_20px_40px)]
-          opacity-40
-        " />
-      </div>
-
-      {/* CAR */}
-      <img
-        src="/images/car.png"
-        className="absolute left-1/2 bottom-[30px] w-[120px] -translate-x-1/2"
-      />
-    </div>
+    <>
+      <div className="absolute top-[5%] bottom-[12%] left-[27%] w-px bg-white/70 pointer-events-none" />
+      <div className="absolute top-[5%] bottom-[10%] left-1/2 -translate-x-1/2 w-px bg-white/70 pointer-events-none" />
+      <div className="absolute left-0 top-[16.5%] w-[82%] h-px bg-white/70 pointer-events-none" />
+      <div className="absolute left-0 top-[42.5%] w-[82%] h-px bg-white/70 pointer-events-none" />
+    </>
   );
 }
