@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Blogs from "../components/home/Blogs";
 import FourHome from "../components/home/FourHome";
 import HomeHero from "../components/home/HomeHero";
 import SecondHero from "../components/home/SecondHero";
@@ -35,6 +36,10 @@ export default function Home() {
 
 <section>
   <FourHome/>
+</section>
+
+<section>
+  <Blogs/>
 </section>
 
 
