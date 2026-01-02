@@ -7,7 +7,6 @@
 /* Default body font = Rethink Sans */
 body {
   font-family: "Rethink Sans", sans-serif;
-  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 

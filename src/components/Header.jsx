@@ -45,41 +45,44 @@ export default function Header({ variant = "default" }) {
     <header
       className={`
         fixed top-0 left-0 w-full z-[1000] transition-all duration-300
-        ${
-          isHome
-            ? scrolled
-              ? "bg-white/90 dark:bg-black/90 backdrop-blur border-b border-gray-200 dark:border-white/10"
-              : "bg-transparent"
-            : useDarkTheme
+        ${isHome
+          ? scrolled
+            ? "bg-white/90 dark:bg-black/90 backdrop-blur "
+            : "bg-transparent"
+          : useDarkTheme
             ? "bg-black border-b border-white/10"
             : "bg-white"
         }
       `}
     >
-      <div className="max-w-[93vw] mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="h-[80px] flex items-center justify-between">
+      <div className="max-w-[93vw] mx-auto py-3 px-6 sm:px-10 lg:px-16">
+        <div className="h-[70px] flex items-center justify-between">
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
               src="/images/Swaayatt/Swaayatt.png"
-              className="w-12 h-12 object-contain"
+              className="w-10 h-10 object-contain"
               alt="Swaayatt Robots"
             />
             <div
-              className={`font-semibold text-[16px] leading-tight ${
-                useDarkTheme ? "text-white" : "text-[#1C1C1C]"
-              }`}
+              className={`font-semibold text-[16px] leading-tight ${useDarkTheme ? "text-white" : "text-[#1C1C1C]"
+                }`}
             >
-              <div>SWAAYATT</div>
-              <div>ROBOTS</div>
+              <div className="font-rethink tracking-[0.1em]">
+                SWAAYATT
+              </div>
+
+              <div className="font-rethink leading-tight tracking-[0.15em]">
+                ROBOTS
+              </div>
+
             </div>
           </Link>
 
           {/* DESKTOP NAV */}
           <nav
-            className={`hidden lg:flex items-center gap-10 text-[18px] font-semibold ${
-              useDarkTheme ? "text-white" : "text-[#1C1C1C]"
-            }`}
+            className={`hidden lg:flex items-center gap-10 text-[18px] font-semibold ${useDarkTheme ? "text-white" : "text-[#1C1C1C]"
+              }`}
           >
             {/* RESEARCH */}
             <div ref={ref} className="relative">
@@ -91,6 +94,8 @@ export default function Header({ variant = "default" }) {
                 >
                   Research
                 </Link>
+
+                {/* Dropdown Toggle Button */}
                 <button
                   onClick={() => setOpen((p) => !p)}
                   className="ml-2 hover:opacity-80 transition-opacity"
@@ -152,11 +157,20 @@ export default function Header({ variant = "default" }) {
               )}
             </div>
 
-            <Link to="/media" className="hover:opacity-80">Media</Link>
-            <Link to="/blogs" className="hover:opacity-80">Blogs</Link>
-            <Link to="/career" className="hover:opacity-80">Career</Link>
-            <Link to="/contact" className="hover:opacity-80">Contact</Link>
+            <Link to="/media" className="hover:opacity-80 transition-opacity">
+              Media
+            </Link>
+            <Link to="/blogs" className="hover:opacity-80 transition-opacity">
+              Blogs
+            </Link>
+            <Link to="/career" className="hover:opacity-80 transition-opacity">
+              Career
+            </Link>
+            <Link to="/contact" className="hover:opacity-80 transition-opacity">
+              Contact
+            </Link>
 
+            {/* THEME TOGGLE */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -188,6 +202,76 @@ export default function Header({ variant = "default" }) {
           </div>
         </div>
       </div>
+
+      {/* MOBILE NAV - Modified Section */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+          <div className="px-6 py-4 space-y-4">
+            {/* Research Page Link for Mobile */}
+            <div className="flex justify-between items-center">
+              <Link
+                to="/research"
+                onClick={() => setMobileOpen(false)}
+                className="py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                Research
+              </Link>
+
+              {/* Mobile Dropdown Toggle */}
+              <button
+                onClick={() => setMobileResearchOpen(!mobileResearchOpen)}
+                className="p-2"
+              >
+                <ChevronDown />
+              </button>
+            </div>
+
+            {mobileResearchOpen && (
+              <div className="pl-4 space-y-2 text-gray-600 dark:text-gray-400">
+                {researchMenu.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    onClick={() => setMobileOpen(false)}
+                    className="block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <Link
+              to="/media"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Media
+            </Link>
+            <Link
+              to="/blogs"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/career"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Career
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

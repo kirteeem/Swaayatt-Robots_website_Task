@@ -1,195 +1,97 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-/* ================= DATA ================= */
+/* ================= DIVIDERS DATA ================= */
 
-const images = [
-  "/images/Blogs/Homepage-1.webp",
-  "/images/Blogs/Homepage-1.webp",
-  "/images/Blogs/Blog-1.webp",
-  "/images/media/news/n1.webp",
-  "/images/Blogs/Homepage-1.webp",
+const DIVIDERS = [
+  { left: "20%", date: "20 Aug 2025" },
+  { left: "35%", date: "20 Jul 2025" },
+  { left: "65%", date: "08 Jul 2025" },
+  { left: "82%", date: "18 Mar 2025" },
 ];
 
-const CENTER_TEXT =
-  "Introducing Bidirectional Negotiation to the World of Autonomous Driving:\nBiologically Inspired Model";
+export default function RoadTimeline({ progress }) {
+  const carRef = useRef(null);
+  const wrapperRef = useRef(null);
 
-/* ================= POSITIONS ================= */
+  useEffect(() => {
+    if (!carRef.current || !wrapperRef.current) return;
 
-const SLOTS = [
-  { x: "-42vw", scale: 0.42, opacity: 0.18, z: 5 },
-  { x: "-24vw", scale: 0.65, opacity: 0.38, z: 10 },
-  { x: "0vw",   scale: 1.1,  opacity: 1,    z: 30 }, // CENTER
-  { x: "24vw",  scale: 0.65, opacity: 0.38, z: 10 },
-  { x: "39vw",  scale: 0.32, opacity: 0.16, z: 4 },
-];
+    const width = wrapperRef.current.offsetWidth;
+    const startX = width * 0.05;
+    const endX = width * 0.78;
 
-/* ================= COMPONENT ================= */
-
-export default function BlogNodes({ progress }) {
-  const refs = useRef([]);
-  const glowRefs = useRef([]);
-  const [centerIndex, setCenterIndex] = useState(null);
-
-  useLayoutEffect(() => {
-    const total = images.length;
-    const indexProgress = progress * (total - 1);
-
-    refs.current.forEach((el, i) => {
-      if (!el) return;
-
-      const offset = i - indexProgress;
-      const slotIndex = Math.round(
-        gsap.utils.clamp(0, total - 1, offset + 2)
-      );
-
-      const slot = SLOTS[slotIndex];
-      const isCenter = slotIndex === 2;
-
-      /* IMAGE MOTION */
-      gsap.to(el, {
-        x: slot.x,
-        scale: slot.scale,
-        opacity: slot.opacity,
-        zIndex: slot.z,
-        duration: 0.45,
-        ease: "power3.out",
-      });
-
-      /* GREEN GLOW */
-      gsap.to(glowRefs.current[i], {
-        opacity: isCenter ? 1 : 0,
-        scale: isCenter ? 1 : 0.85,
-        duration: 0.6,
-        ease: "power3.out",
-      });
-
-      /* TRACK CENTER IMAGE */
-      if (isCenter) {
-        setCenterIndex(i);
-      }
+    gsap.to(carRef.current, {
+      x: gsap.utils.interpolate(startX, endX, progress),
+      duration: 0.4,
+      ease: "power3.out",
     });
   }, [progress]);
 
   return (
-    <div className="absolute inset-0 z-30 pointer-events-none">
+    <div
+      ref={wrapperRef}
+      className="absolute bottom-[14vh] left-0 right-0 h-[28vh] z-40 pointer-events-none"
+    >
+      {/* BLACK BACKGROUND BELOW ROAD */}
+      <div className="absolute bottom-0 left-0 w-full h-[55%] bg-black z-0" />
 
-      {/* ================= IMAGES ================= */}
-      {images.map((src, i) => (
+      {/* ROAD */}
+      <img
+        src="/images/roadtimeline/Rectangle 9.png"
+        className="absolute inset-0 w-full h-full object-contain z-10"
+        alt=""
+      />
+
+      {/* DASH */}
+      <div
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[6px] z-20"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(to right, #fff 0 30px, transparent 30px 60px)",
+        }}
+      />
+
+      {/* ================= DIVIDERS + DATES ================= */}
+      {DIVIDERS.map((item, i) => (
         <div
           key={i}
-          ref={(el) => (refs.current[i] = el)}
-          className="absolute top-[18%] left-1/2 -translate-x-1/2"
+          className="absolute top-1/2 z-30"
+          style={{ left: item.left }}
         >
-          <div className="relative w-[22vw] aspect-video overflow-visible">
+          {/* SLANTED LINE */}
+          <div
+            className="
+              w-px
+              h-[80px]
+              bg-white/60
+              rotate-[20deg]
+              origin-top
+            "
+          />
 
-            {/* 🌿 GREEN GLOW */}
-           {/* 🌿 GREEN GLOW */}
-<div
-  ref={(el) => (glowRefs.current[i] = el)}
-  className="
-    absolute
-    -inset-[55%]
-    rounded-full
-    opacity-0
-    blur-[180px]
-    z-0
-    mix-blend-screen
-  "
- style={{
-  background: `
-    radial-gradient(
-      ellipse at center,
-      rgba(28, 60, 40, 0.85) 0%,
-      rgba(28, 60, 40, 0.55) 30%,
-      rgba(28, 60, 40, 0.32) 50%,
-      rgba(28, 60, 40, 0.26) 65%,
-      rgba(0, 0, 0, 0.55) 85%,
-      rgba(0, 0, 0, 0.85) 100%
-    )
-  `,
-}}
-/>
-
-
-            {/* IMAGE CARD */}
-            <div className="relative z-10 overflow-hidden rounded-lg">
-
-              <img
-                src={src}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-
-              {/* DARK OVERLAY */}
-              <div className="absolute inset-0 bg-black/35" />
-
-              {/* 🔴 SMALL YOUTUBE PLAY BUTTON */}
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div
-                  className="
-                    w-[3.6vw]
-                    h-[3.6vw]
-                    min-w-[40px]
-                    min-h-[40px]
-                    max-w-[60px]
-                    max-h-[60px]
-                    rounded-full
-                    bg-[#FF0000]
-                    flex
-                    items-center
-                    justify-center
-                    shadow-lg
-                  "
-                >
-                  <div
-                    className="
-                      ml-[2px]
-                      w-0
-                      h-0
-                      border-t-[8px]
-                      border-b-[8px]
-                      border-l-[13px]
-                      border-t-transparent
-                      border-b-transparent
-                      border-l-white
-                    "
-                  />
-                </div>
-              </div>
-
-            </div>
+          {/* DATE */}
+          <div
+            className="
+              mt-2
+              -translate-x-1/2
+              text-xs
+              text-white/80
+              whitespace-nowrap
+            "
+          >
+            {item.date}
           </div>
         </div>
       ))}
 
-      {/* ================= CENTER IMAGE TEXT ONLY ================= */}
-      {centerIndex !== null && (
-        <div
-          className="
-            absolute
-            left-1/2
-            top-[45%]
-            -translate-x-1/2
-            text-center
-          "
-        >
-          <p
-            className="
-              font-['Chivo_Mono']
-              text-[20px]
-              leading-[100%]
-              tracking-[-0.02em]
-              text-white
-              max-w-[505px]
-              whitespace-pre-line
-            "
-          >
-            {CENTER_TEXT}
-          </p>
-        </div>
-      )}
-
+      {/* CAR */}
+      <img
+        ref={carRef}
+        src="/images/Swaayatt/Bolero.png"
+        className="absolute top-1/2 -translate-y-1/2 w-[22vw] max-w-[320px] z-40"
+        alt=""
+      />
     </div>
   );
 }

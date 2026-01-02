@@ -1,5 +1,7 @@
 import Header from "../components/Header";
-import HomeHero from "../components/media/HomeHero";
+import Blogs from "../components/home/Blogs";
+import FourHome from "../components/home/FourHome";
+import HomeHero from "../components/home/HomeHero";
 import SecondHero from "../components/home/SecondHero";
 import ThirdHero from "../components/home/ThirdHero";
 import TimelineSection from "../components/home/timeline/ TimelineSection";
@@ -31,6 +33,17 @@ export default function Home() {
       >
         <TimelineSection />
       </section>
+
+<section>
+  <FourHome/>
+</section>
+
+<section>
+  <Blogs/>
+</section>
+
+
+
     </main>
   );
 }

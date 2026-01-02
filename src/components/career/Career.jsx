@@ -202,54 +202,86 @@ export default function Career() {
 
 
 
-      <section className="sm:max-w-[89.5vw] max-w-[100vw] mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="relative rounded-2xl overflow-hidden">
-          {/* Background Image */}
-          <img
-            src={frame}
-            alt="Innovation That Matters"
-            className="w-full h-[880px] sm:h-[420px] lg:h-[635px] object-cover "
-          />
+<section
+  className="
+    max-w-[100vw]
+    md:max-w-[95vw]
+    lg:max-w-[89.5vw]
+    mx-auto
+    px-4 md:px-6 lg:px-8
+    pb-20
+  "
+>
+  <div className="relative rounded-2xl overflow-hidden">
+    {/* Background Image */}
+    <img
+      src={frame}
+      alt="Innovation That Matters"
+      className="
+        w-full
+        h-[880px]
+        sm:h-[420px]
+        md:h-[620px]
+        lg:h-[635px]
+        object-cover
+      "
+    />
 
-          {/* Blur Black Overlay on Right Side */}
-          <div className="absolute inset-0 flex">
-            {/* Left side - Transparent */}
-            <div className="flex-1"></div>
+    {/* Overlay */}
+    <div className="absolute inset-0 flex">
+      {/* Left side transparent */}
+      <div className="flex-1"></div>
 
-            {/* Right side - Blur Black Effect */}
-            <div className="w-full max-w-[570px] bg-gradient-to-l from-black/90 via-black/70 to-transparent backdrop-blur">
-              <div className="w-full h-full flex items-center">
-                <div className="px-4 sm:px-6 lg:px-8 text-white py-8 lg:py-12">
-                  <h2 className="font-rethink font-bold text-4xl   mb-4">
-                    Innovation That Matters
-                  </h2>
-                  <p className="font-rethink text-lg leading-[1.6]  space-y-4">
-                    <span className="block">
-                      At Swaayatt Robots, we have been at the forefront of developing
-                      India's first autonomous driving technology since 2016.
-                    </span>
-                    <span className="block">
-                      Join our innovative team and embark on a journey to work on
-                      cutting-edge research in the field of autonomous driving and
-                      artificial intelligence.
-                    </span>
-                    <span className="block">
-                      At Swaayatt, you'll have access to continuous learning opportunities
-                      and the latest advancements in tools and technologies related to
-                      autonomous driving and AI.
-                    </span>
-                    <span className="block">
-                      We take pride in being recognized as the first company in the world
-                      to enable autonomous driving in some of the most challenging and
-                      stochastic environments, such as India.
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
+      {/* Right side blur black */}
+      <div
+        className="
+          w-full
+          max-w-full
+          md:max-w-[420px]
+          lg:max-w-[570px]
+          bg-gradient-to-l
+          from-black/90
+          via-black/70
+          to-transparent
+          backdrop-blur
+        "
+      >
+        <div className="w-full h-full flex items-center">
+          <div className="px-4 md:px-6 lg:px-8 text-white py-8 lg:py-12">
+            <h2 className="font-rethink font-bold text-2xl md:text-3xl lg:text-4xl mb-4">
+              Innovation That Matters
+            </h2>
+
+            <p className="font-rethink text-base md:text-lg leading-[1.6] space-y-4">
+              <span className="block">
+                At Swaayatt Robots, we have been at the forefront of developing
+                India's first autonomous driving technology since 2016.
+              </span>
+
+              <span className="block">
+                Join our innovative team and embark on a journey to work on
+                cutting-edge research in the field of autonomous driving and
+                artificial intelligence.
+              </span>
+
+              <span className="block">
+                At Swaayatt, you'll have access to continuous learning opportunities
+                and the latest advancements in tools and technologies related to
+                autonomous driving and AI.
+              </span>
+
+              <span className="block">
+                We take pride in being recognized as the first company in the world
+                to enable autonomous driving in some of the most challenging and
+                stochastic environments, such as India.
+              </span>
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ================= WE ARE HIRING ================= */}
       <section className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-12  pb-20">
