@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-/* ================= DIVIDERS DATA ================= */
-
 const DIVIDERS = [
   { left: "20%", date: "20 Aug 2025" },
   { left: "35%", date: "20 Jul 2025" },
@@ -18,13 +16,10 @@ export default function RoadTimeline({ progress }) {
     if (!carRef.current || !wrapperRef.current) return;
 
     const width = wrapperRef.current.offsetWidth;
-    const startX = 0;
     const endX = width * 0.78;
 
-    const safeProgress = gsap.utils.clamp(0, 1, progress ?? 0);
-
     gsap.to(carRef.current, {
-      x: gsap.utils.interpolate(startX, endX, safeProgress),
+      x: endX * (progress ?? 0),
       duration: 0.35,
       ease: "power3.out",
     });
@@ -35,125 +30,109 @@ export default function RoadTimeline({ progress }) {
       ref={wrapperRef}
       className="
         absolute
-        bottom-[14vh]
-        left-0
-        right-0
-        h-[190px]
-        z-40
-        pointer-events-none
+        bottom-[10vh] sm:bottom-[12vh] md:bottom-[14vh]
+        left-0 right-0
+        h-[140px] sm:h-[160px] md:h-[190px]
+        z-40 pointer-events-none
       "
     >
-      {/* ================= ROAD ================= */}
-      <div className="absolute top-[-8px] left-0 right-0 h-[115px] z-10 road-wrap">
+      {/* ROAD */}
+      <div className="absolute top-0 left-0 right-0 h-[70px] sm:h-[90px] md:h-[115px] road-wrap">
         <div className="road-surface" />
-
-        {/* CENTER STRIPS */}
         <div className="road-center">
           <div className="road-dash" />
         </div>
       </div>
 
-      {/* BLACK AREA BELOW ROAD */}
+      {/* BLACK AREA */}
+      <div className="absolute left-0 right-0 bg-black top-[70px] sm:top-[90px] md:top-[107px] h-[70px]" />
+
+      {/* DIVIDERS */}
+      {DIVIDERS.map((item, i) => (
+  <div
+    key={i}
+    className="absolute top-0"
+    style={{
+      left: item.left,
+      transform: "translateX(-50%)",
+      zIndex: 20,
+      pointerEvents: "none",
+    }}
+  >
+    {/* MAIN SLANTED LINE */}
+    <div
+      className="relative"
+      style={{
+        height: "125px",
+        width: "1px",
+        background: "white",
+        transform: "rotate(24deg)",
+        transformOrigin: "top center",
+      }}
+    >
+      {/* DOT JOINT */}
       <div
-        className="absolute left-0 right-0 bg-black"
         style={{
-          top: "107px",
-          height: "83px",
-          zIndex: 5,
+          position: "absolute",
+          bottom: "-3px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "5px",
+          height: "5px",
+          borderRadius: "50%",
+          background: "white",
         }}
       />
 
-      {/* ================= DIVIDERS + DATE ================= */}
-      {DIVIDERS.map((item, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            left: item.left,
-            top: 0,
-            zIndex: 20,
-            pointerEvents: "none",
-          }}
-        >
-          {/* TOP ROTATED SEGMENT */}
-          <div
-            style={{
-              position: "relative",
-              height: "125px",
-              width: "0.5px",
-              transform: "rotate(25deg)",
-              transformOrigin: "top",
-            }}
-          >
-            {/* MAIN LINE */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "white",
-              }}
-            />
+      {/* DATE */}
+      <div
+        style={{
+          position: "absolute",
+          top: "100%",
+          left: "50%",
+          marginTop: "10px",
+          transform: "translateX(-50%) rotate(-24deg)",
+          transformOrigin: "top center",
+          fontSize: "12px",
+          color: "rgba(255,255,255,0.7)",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {item.date}
+      </div>
+    </div>
+  </div>
+))}
 
-            {/* JOINT */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "-2px",
-                left: "-1px",
-                width: "4px",
-                height: "4px",
-                borderRadius: "50%",
-                background: "white",
-              }}
-            />
 
-            {/* TILTED DOWN LINE */}
-            <div
-              style={{
-                position: "absolute",
-                top: "100%",
-                left: "0px",
-                width: "0.5px",
-                height: "45px",
-                background: "white",
-                transform: "rotate(-24deg)",
-                transformOrigin: "top",
-              }}
-            />
+      {/* CAR */}
+{/* CAR WRAPPER (controls vertical position) */}
+<div
+  className="
+    absolute
+    top-[38px] sm:top-[55px] md:top-[60px]
+    -translate-y-4 sm:-translate-y-3 md:-translate-y-5
+    z-40
+    pointer-events-none
+  "
+>
+<img
+  ref={carRef}
+  src="/images/Swaayatt/Bolero.png"
+  className="
+    absolute
+    top-[60px]
+    -mt-6 sm:-mt-8 md:-mt-32
+    w-[30vw] sm:w-[24vw] md:w-[20vw]
+    max-w-[300px]
+    z-40
+  "
+  alt="car"
+/>
 
-            {/* DATE ONLY */}
-            <div
-              style={{
-                position: "absolute",
-                top: "calc(100% + 44px)",
-                left: "26px",
-                transform: "translateX(-50%) rotate(-24deg)",
-                transformOrigin: "top",
-                fontSize: "12px",
-                color: "rgba(255,255,255,0.7)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {item.date}
-            </div>
-          </div>
-        </div>
-      ))}
+</div>
 
-      {/* ================= CAR ================= */}
-      <img
-        ref={carRef}
-        src="/images/Swaayatt/Bolero.png"
-        className="
-          absolute
-          top-[60px]
-          -translate-y-1/2
-          w-[22vw]
-          max-w-[320px]
-          z-40
-        "
-        alt="car"
-      />
+
     </div>
   );
 }
